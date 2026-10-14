@@ -19,7 +19,7 @@
   const n = Math.min(Math.max(+K1.qs("n") || 1, 1), LESSONS.length), L = LESSONS[n - 1], prev = LESSONS[n - 2], next = LESSONS[n];
   document.title = `${n}차시 ${L.title} · 역사② Ⅰ단원`;
   const gameHref = L.game.sim ? "sim.html" : `game.html?g=${L.game.id}`;
-  $("gnb").innerHTML = K1.gnb([["역사② Ⅰ단원", "index.html"], [`${n}차시`, ""]], `<a class="btn sm ghost" href="${gameHref}">${I.game}<span class="hide-m">게임</span></a><button class="btn sm pri" type="button" data-pres>${I.screen}수업 모드</button>`);
+  $("gnb").innerHTML = K1.gnb([["역사② Ⅰ단원", "index.html"], [`${n}차시`, ""]], `<a class="btn sm ghost" href="${gameHref}">${I.game}<span class="hide-m">게임</span></a><a class="btn sm pri" href="slides${n}.html">${I.screen}수업 슬라이드</a>`);
   $("side").innerHTML = `<h4>${UNIT.book} ${UNIT.no}. ${esc(UNIT.title)}</h4><ol>${LESSONS.map(l => `<li><a href="lesson.html?n=${l.n}"${l.n === n ? ' aria-current="page"' : ""}><span class="k">${l.n}</span><span>${esc(l.title.split(" — ")[0])}</span></a></li>`).join("")}</ol><p class="back"><a href="index.html">단원 전체 보기</a></p>`;
 
   const key = "pr:" + n, checked = store.get(key, []), done = store.get("done", {});
@@ -45,7 +45,8 @@
           <h1>${esc(L.title)}</h1>
           ${K1.eraRibbon(L)}
           <div class="actions no-print">
-            <button class="btn pri" type="button" data-pres>${I.screen}수업 모드로 띄우기</button>
+            <a class="btn pri lg" href="slides${n}.html">${I.screen}수업 슬라이드로 수업하기</a>
+            <button class="btn" type="button" data-pres>발문만 크게 띄우기</button>
             <a class="btn" href="${gameHref}">${I.game}${esc(L.game.name)}</a>
             <button class="btn" type="button" onclick="print()">${I.print}활동지 인쇄</button>
           </div>
