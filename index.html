@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>역사 수업 실험실</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&family=Nanum+Myeongjo:wght@800&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+:root{--hist:#9a3b2c} @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--hist:#f08a72}}
+.hero h1{font-size:clamp(28px,4vw,42px)} .hero p{color:var(--muted);max-width:60ch}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;gap:14px;text-decoration:none;align-items:center}
+.card:hover{border-color:var(--hist)}
+.card .ic{font:800 48px/1 "Nanum Myeongjo",serif;color:var(--hist);flex:none;width:64px;text-align:center}
+.card b{display:block;font-size:17px} .card span{font-size:13px;color:var(--muted)}
+.card .tag{display:inline-block;font-size:11px;background:var(--hist);color:#fff;border-radius:4px;padding:1px 6px;margin-bottom:4px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <section class="hero">
+    <div class="eyebrow">2022 개정 교육과정 · 중학교 역사 · 고등학교 한국사</div>
+    <h1>역사 수업 실험실</h1>
+    <p>사료를 읽고, 직접 만들어 보고, 겨루며 배우는 역사 수업 자료를 모읍니다.</p>
+  </section>
+  <div class="cards">
+    <a class="card" href="hangeul/sim.html"><span class="ic">ㄱ</span><span><span class="tag">시뮬레이션 · 게임</span><b>훈민정음 창제 원리 실험실</b><span>조선 전기 민족 문화 · 발음 기관 상형, 가획, 천지인, 글자 조합 게임, 서문 사료 읽기</span></span></a>
+  </div>
+  <footer class="site">역사 수업 실험실 · 2022 개정 교육과정 기준</footer>
+</div>
+</body>
+</html>
