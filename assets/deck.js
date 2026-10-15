@@ -34,5 +34,6 @@
   document.getElementById('deck').addEventListener('click', function (e) { (e.clientX < innerWidth * .25 ? prev : next)(); });
   document.getElementById('bN').onclick = function () { notes.classList.toggle('on'); };
   document.getElementById('bF').onclick = toggleFS;
+  addEventListener('hashchange', function () { var n = +location.hash.slice(1); if (n && n - 1 !== i) show(n - 1); });
   show((+location.hash.slice(1) || 1) - 1);
 })();
