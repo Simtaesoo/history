@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>시뮬레이션 · 역사① 3단원 세계 종교의 확산과 지역 문화의 발전</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700;900&family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="../../assets/sim.css">
+<style>
+table.t{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums}
+table.t th,table.t td{border-bottom:1px solid var(--faint);padding:6px 8px;text-align:left}
+.num-in{font:700 26px var(--serif);background:var(--panel);color:var(--ink);border:1px solid var(--faint);border-radius:10px;padding:8px 12px;width:100%}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.three button{font:500 13px var(--sans);border:1px solid var(--faint);background:transparent;color:var(--dim);border-radius:8px;padding:6px 4px;cursor:pointer}
+.three button[aria-pressed="true"]{border-color:var(--gold);color:var(--ink);background:rgba(217,178,95,.12)}
+</style>
+</head>
+<body>
+<div class="top"><a href="../index.html#u3">← 역사① 목록</a><nav id="nav"></nav></div>
+
+<!-- 1 -->
+<section class="panel" data-lesson="1">
+  <h1>장안으로 가는 사절단</h1>
+  <p class="q">조공은 손해였을까, 이익이었을까?</p>
+  <p style="color:var(--dim);font-size:14px">나는 신라의 사신이다. 당에 가져갈 물건과 얻고 싶은 것을 고르자.</p>
+  <h2 class="sub">가져갈 물건 (두 가지)</h2><div class="grid2" id="give1"></div>
+  <h2 class="sub">얻고 싶은 것 (두 가지)</h2><div class="grid2" id="want1"></div>
+  <div class="btns" style="margin-top:14px"><button class="go" id="bGo1" type="button" disabled>장안으로 떠나기</button></div>
+  <div class="report" id="rep1" style="margin-top:14px" hidden></div>
+  <p class="note" style="margin-top:12px">실제 조공·책봉의 여러 모습을 바탕으로 꾸민 <b>모형</b>입니다. 결과는 나라와 시기에 따라 달랐습니다.</p>
+</section>
+
+<!-- 2 -->
+<section class="panel" data-lesson="2">
+  <h1>문화 수입 회의</h1>
+  <p class="q">당에서 들어온 것을 그대로 받을까, 바꿀까, 거절할까?</p>
+  <div class="btns" style="margin:12px 0"><span style="color:var(--dim);font-size:14px">우리 나라:</span><select id="land2"><option value="silla">신라</option><option value="japan">일본</option><option value="viet">베트남(리 왕조 무렵)</option></select></div>
+  <table class="t" id="tb2"></table>
+  <div class="btns" style="margin-top:14px"><button class="go" id="bGo2" type="button">실제와 견주기</button></div>
+  <div class="report" id="rep2" style="margin-top:14px" hidden></div>
+</section>
+
+<!-- 3 -->
+<section class="panel" data-lesson="3">
+  <h1>로마 숫자 대 인도 숫자</h1>
+  <p class="q">영(0)과 자릿값은 계산을 얼마나 쉽게 만들었을까?</p>
+  <div class="stage">
+    <div class="card">
+      <p style="margin:0 0 8px;color:var(--dim)">두 수를 더하세요. 위는 로마 숫자, 아래는 같은 문제를 인도-아라비아 숫자로 쓴 것입니다.</p>
+      <div class="big" id="rom3" style="font-size:34px;letter-spacing:.04em"></div>
+      <input class="num-in" id="ansR" inputmode="numeric" placeholder="로마 숫자 문제의 답 (아라비아 숫자로)" aria-label="로마 숫자 문제의 답">
+      <div class="big" id="ind3" style="font-size:34px;margin-top:16px"></div>
+      <input class="num-in" id="ansI" inputmode="numeric" placeholder="아라비아 숫자 문제의 답" aria-label="아라비아 숫자 문제의 답">
+      <div class="btns" style="margin-top:12px"><button class="go" id="bChk3" type="button">채점</button><button id="bNew3" type="button">새 문제</button></div>
+      <div class="fb" id="fb3" style="margin-top:10px" hidden></div>
+    </div>
+    <div class="side"><div class="card" style="font-size:13.5px;line-height:1.8">I=1 · V=5 · X=10 · L=50 · C=100 · D=500 · M=1000<br>작은 수가 앞에 오면 뺀다: IV=4, IX=9, XL=40, XC=90, CD=400, CM=900<br><br>로마 숫자에는 <b>0이 없고</b>, 자리마다 값이 정해져 있지 않습니다.</div>
+      <p class="note">두 문제를 푸는 데 걸린 시간을 견주어 보세요. 로마 사람들은 계산할 때 주판(셈판)을 썼습니다.</p></div>
+  </div>
+</section>
+
+<!-- 4 -->
+<section class="panel" data-lesson="4">
+  <h1>300년의 개종</h1>
+  <p class="q">정복된 마을 사람들은 얼마나 빨리 무슬림이 되었을까?</p>
+  <div class="stage">
+    <div><canvas id="cv4" width="760" height="380" aria-label="300년 동안 무슬림 비율 그래프"></canvas><div class="log" id="log4"></div></div>
+    <div class="side">
+      <div class="rng"><label for="tax4">비무슬림이 더 내는 세금(지즈야) <b id="tax4V">보통</b></label><input type="range" id="tax4" min="0" max="2" value="1"></div>
+      <div class="rng"><label for="trade4">무슬림 상인·관리와 어울릴 기회 <b id="trade4V">보통</b></label><input type="range" id="trade4" min="0" max="2" value="1"></div>
+      <div class="sw"><label><input type="checkbox" id="force4"><div><b>억지로 개종시키기</b><span>짧은 시간에는 늘지만 반발과 도망이 생긴다</span></div></label></div>
+      <div class="btns"><button class="go" id="bRun4" type="button">300년 돌리기</button></div>
+      <p class="note">이집트·이란 등에서 무슬림이 다수가 되기까지 수백 년이 걸렸다는 연구를 바탕으로 만든 <b>모형</b>입니다. 숫자는 실제 기록이 아닙니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 5 -->
+<section class="panel" data-lesson="5">
+  <h1>농노의 한 해</h1>
+  <p class="q">내가 거둔 곡식은 누구에게 얼마나 갔을까?</p>
+  <div class="stage">
+    <div><div class="card" id="log5" style="min-height:250px;font-size:14px;line-height:1.8"></div>
+      <div class="bar2" id="bar5" style="height:26px;border-radius:8px;overflow:hidden;display:flex;margin-top:12px"></div>
+      <div id="leg5" style="font-size:13px;color:var(--dim);margin-top:6px"></div></div>
+    <div class="side">
+      <div class="day" id="season5">봄<small>장원의 한 해</small></div>
+      <div id="choice5" class="sw"></div>
+      <div class="btns"><button id="bReset5" type="button">처음으로</button></div>
+      <p class="note">중세 장원의 일반적인 의무(영주의 땅 부역, 십일조, 방앗간 사용료 등)를 바탕으로 꾸민 <b>모형</b>입니다. 장원마다 달랐습니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6 -->
+<section class="panel" data-lesson="6">
+  <h1>떠날 것인가</h1>
+  <p class="q">1096년, 나는 십자군에 나설까?</p>
+  <h2 class="sub">나는 누구인가</h2><div class="grid2" id="who6"></div>
+  <div id="step6" style="margin-top:14px"></div>
+  <div class="report" id="rep6" style="margin-top:14px" hidden></div>
+</section>
+
+<p class="soon" id="soon" hidden>이 차시 시뮬레이션은 준비 중입니다.</p>
+<script src="../../assets/sim.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+function picks(el,items,max,onchange){let sel=[];el.innerHTML=items.map((t,i)=>`<button class="pick" type="button" data-i="${i}" aria-pressed="false">${t[0]}<small>${t[1]}</small></button>`).join('');
+  el.onclick=e=>{const b=e.target.closest('.pick');if(!b)return;const i=+b.dataset.i;sel=sel.includes(i)?sel.filter(x=>x!==i):sel.length<max?[...sel,i]:sel;
+    [...el.children].forEach((c,j)=>c.setAttribute('aria-pressed',sel.includes(j)));onchange(sel);};return()=>sel;}
+
+/* 1 */
+(function(){
+  const G=[['인삼','귀한 약재'],['금은 세공품','정교한 기술'],['명주와 베','옷감'],['말','군사용 말'],['바다표범 가죽','북방의 특산물']];
+  const W=[['왕의 칭호(책봉)','나라 안에서 왕의 권위'],['비단과 그릇','귀한 물건'],['불교 경전과 책','새 지식'],['유학생 받아 주기','인재 기르기'],['군사 도움','이웃 나라와의 싸움']];
+  let g=[],w=[];const gg=picks($('give1'),G,2,s=>{g=s;upd();}),ww=picks($('want1'),W,2,s=>{w=s;upd();});
+  function upd(){$('bGo1').disabled=!(g.length===2&&w.length===2);}
+  const R={0:'당 황제는 신라 왕을 인정하는 칭호와 관복을 내렸다. 왕은 귀국한 사신의 보고를 근거로 나라 안에서 권위를 높였다.',
+    1:'당은 가져온 것보다 값진 비단·그릇을 답례(회사품)로 내렸다. 사신단을 따라간 상인들도 장사를 했다.',
+    2:'사신단은 불교 경전과 유학 책을 사 왔다. 함께 간 승려는 장안의 절에 남아 공부를 이어 갔다.',
+    3:'신라의 유학생이 국자감에 들어갔다. 이들 가운데 빈공과에 합격해 당의 관리가 되는 사람도 나왔다.',
+    4:'당은 군사 도움을 약속했지만 대가를 원했다. 7세기 나당 동맹처럼, 도움을 받은 뒤 당과 맞서 싸워야 할 수도 있다.'};
+  $('bGo1').onclick=()=>{$('rep1').hidden=false;$('rep1').innerHTML=`<h3>장안에서 돌아온 사절단의 보고</h3><p><b>바친 것</b>: ${g.map(i=>G[i][0]).join(', ')}</p>`+w.map(i=>`<p>${R[i]}</p>`).join('')+
+    `<p class="miss-list"><b>생각해 볼 질문</b>: 신라는 무엇을 ‘잃었고’ 무엇을 ‘얻었나’? 당의 기록과 신라의 기록은 이 사절단을 어떻게 다르게 적었을까?</p>`;};
+})();
+
+/* 2 */
+(function(){
+  const ITEMS=['율령(법과 관청 제도)','과거 시험','불교','유교 경전 교육','장안 같은 바둑판 도시','한자로 공식 문서 쓰기','당나라 옷차림(관복)','균전제(땅 나누기)'];
+  const REAL={silla:['바꿈','바꿈','받음','받음','바꿈','받음','받음','바꿈'],japan:['받음','거절','받음','받음','받음','받음','받음','바꿈'],viet:['바꿈','받음','받음','받음','바꿈','받음','바꿈','거절']};
+  const NOTE={silla:'신라는 당의 제도를 받아들였지만 골품제를 지켰고, 시험으로 관리를 뽑는 독서삼품과(788)는 귀족의 반대로 크게 쓰이지 못했다.',
+    japan:'일본은 다이호 율령(701)을 만들고 헤이조쿄를 세웠다. 과거 제도는 거의 뿌리내리지 못했다. 신도와 불교를 함께 믿었다.',
+    viet:'리 왕조는 문묘(1070)와 국자감(1076)을 세우고 과거를 치렀다. 중국에서 독립을 지키면서 제도와 학문은 받아들였다.'};
+  const C=['받음','바꿈','거절'];let me=ITEMS.map(()=>null);
+  function draw(){$('tb2').innerHTML=ITEMS.map((t,i)=>`<tr><th>${t}</th><td><div class="three">${C.map(c=>`<button type="button" data-i="${i}" data-c="${c}" aria-pressed="${me[i]===c}">${c}</button>`).join('')}</div></td></tr>`).join('');}
+  $('tb2').onclick=e=>{const b=e.target.closest('button');if(!b)return;me[+b.dataset.i]=b.dataset.c;draw();};
+  $('land2').onchange=()=>{$('rep2').hidden=true;};
+  $('bGo2').onclick=()=>{const L=$('land2').value,r=REAL[L];let same=0;
+    const rows=ITEMS.map((t,i)=>{if(me[i]===r[i])same++;return `<tr><td>${t}</td><td>${me[i]||'—'}</td><td>${r[i]}</td></tr>`;}).join('');
+    $('rep2').hidden=false;$('rep2').innerHTML=`<h3>${$('land2').selectedOptions[0].text}의 실제 선택과 견주기 · ${same}/8 같음</h3><table class="t" style="color:#1d1b19">${'<tr><th>항목</th><th>나</th><th>실제(대략)</th></tr>'+rows}</table><p>${NOTE[L]}</p><p class="miss-list">‘실제’ 칸은 학계의 대체적인 이해를 단순하게 나타낸 것입니다. 시기마다 달랐습니다.</p>`;};
+  draw();
+})();
+
+/* 3 */
+(function(){
+  function roman(n){const V=[[1000,'M'],[900,'CM'],[500,'D'],[400,'CD'],[100,'C'],[90,'XC'],[50,'L'],[40,'XL'],[10,'X'],[9,'IX'],[5,'V'],[4,'IV'],[1,'I']];let s='';for(const[v,r]of V)while(n>=v){s+=r;n-=v;}return s;}
+  let a,b,c,d,t0;
+  function nw(){a=200+Math.floor(Math.random()*1700);b=100+Math.floor(Math.random()*900);c=200+Math.floor(Math.random()*1700);d=100+Math.floor(Math.random()*900);
+    $('rom3').textContent=roman(a)+' + '+roman(b);$('ind3').textContent=c+' + '+d;$('ansR').value='';$('ansI').value='';$('fb3').hidden=true;t0=Date.now();}
+  $('bNew3').onclick=nw;
+  $('bChk3').onclick=()=>{const r=+$('ansR').value===a+b,i=+$('ansI').value===c+d;$('fb3').hidden=false;
+    $('fb3').innerHTML=`로마 숫자 문제: ${r?'맞음':'틀림 — 답 '+(a+b)+' ('+roman(a+b)+')'} · 인도 숫자 문제: ${i?'맞음':'틀림 — 답 '+(c+d)}<br>걸린 시간 ${Math.round((Date.now()-t0)/1000)}초. 로마 숫자를 풀 때 머릿속에서 무엇을 했나요? 아마 아라비아 숫자로 바꾸었을 거예요.`;};
+  nw();
+})();
+
+/* 4 */
+(function(){
+  const lv=['낮음','보통','높음'];['tax4','trade4'].forEach(id=>$(id).oninput=()=>{$(id+'V').textContent=lv[+$(id).value];});
+  $('bRun4').onclick=()=>{const tax=+$('tax4').value,tr=+$('trade4').value,f=$('force4').checked;let m=2,data=[],fled=0;
+    for(let y=0;y<=300;y++){let rate=.003+tax*.003+tr*.004;if(f&&y<30){rate+=.03;fled+=.4;}if(f&&y>=30)rate=Math.max(.001,rate-.004);
+      m+=(100-m)*rate*(0.3+m/100);data.push(m);}
+    const cv=$('cv4'),c=cv.getContext('2d'),W=cv.width,H=cv.height,p=40;c.clearRect(0,0,W,H);c.strokeStyle='rgba(243,239,230,.15)';
+    for(let i=0;i<=4;i++){const y=p+(H-2*p)*i/4;c.beginPath();c.moveTo(p,y);c.lineTo(W-p,y);c.stroke();}
+    c.fillStyle='rgba(243,239,230,.6)';c.font='13px IBM Plex Sans KR,sans-serif';c.fillText('100%',4,p+4);c.fillText('0',20,H-p+4);c.fillText('정복',p,H-p+20);c.fillText('300년 뒤',W-p-56,H-p+20);
+    c.strokeStyle='#d9b25f';c.lineWidth=2.5;c.beginPath();data.forEach((v,i)=>{const x=p+(W-2*p)*i/300,y=H-p-(H-2*p)*v/100;i?c.lineTo(x,y):c.moveTo(x,y);});c.stroke();
+    const half=data.findIndex(v=>v>=50);
+    $('log4').insertAdjacentHTML('afterbegin',`<div>세금 ${lv[tax]} · 어울림 ${lv[tr]}${f?' · 강제':''}<br><b>${half<0?'300년 안에 절반이 안 됨':half+'년'}</b>에 절반${f?` · 떠난 사람 많음`:''}</div>`);};
+  $('bRun4').click();
+})();
+
+/* 5 */
+(function(){
+  const S=[
+   ['봄','영주의 밭 갈기(부역)를 일주일에 사흘 해야 한다. 내 밭은?',[['영주 밭을 먼저',0,'영주는 만족했다. 내 밭은 늦게 갈았다.',-8],['내 밭을 먼저',1,'영주의 관리인에게 벌금을 물었다.',-6]]],
+   ['여름','비가 오지 않는다. 마을 신부가 기도회를 열자고 한다.',[['기도회에 간다',0,'공동체와 함께 견뎠다.',0],['물길을 판다',1,'일은 고되지만 수확이 조금 늘었다.',+6]]],
+   ['가을','거둔 곡식을 나눌 차례. 교회의 십일조는 반드시 내야 한다.',[['정직하게 낸다',0,'수확의 10분의 1을 교회에 냈다.',-10],['조금 숨긴다',1,'들킬까 두렵다. 이번엔 무사했다.',-5]]],
+   ['겨울','밀을 빻아야 한다. 영주의 방앗간만 써야 하고 사용료를 낸다.',[['영주 방앗간',0,'곡식의 일부를 사용료로 냈다.',-6],['집에서 맷돌로',1,'몰래 빻다가 맷돌을 빼앗겼다.',-9]]]];
+  let k,keep,parts;
+  function reset(){k=0;keep=100;parts={영주:15,교회:0,세금기타:0};$('log5').innerHTML='봄이 왔다. 올해 내가 거둘 곡식을 100으로 하자. 그 가운데 영주의 몫(지대) 15를 먼저 뺀다.';draw();}
+  function draw(){const tot=100;const seg=[['나',keep-parts.영주-parts.교회-parts.세금기타,'#d9b25f'],['영주',parts.영주,'#c8432f'],['교회',parts.교회,'#7a7a8c'],['기타',parts.세금기타,'#5a554d']];
+    $('bar5').innerHTML=seg.map(s=>`<i style="width:${Math.max(0,s[1])}%;background:${s[2]}"></i>`).join('');
+    $('leg5').textContent=seg.map(s=>`${s[0]} ${Math.max(0,Math.round(s[1]))}`).join(' · ');
+    if(k>=S.length){$('season5').innerHTML='한 해 끝<small>내 몫 '+Math.round(keep-parts.영주-parts.교회-parts.세금기타)+'</small>';$('choice5').innerHTML='<p class="note">내 손에 남은 곡식으로 겨울과 내년 씨앗까지 버틸 수 있을까? 영주와 교회는 그 대가로 무엇을 주었나?</p>';return;}
+    const s=S[k];$('season5').innerHTML=s[0]+'<small>장원의 한 해</small>';
+    $('choice5').innerHTML=`<p style="margin:0">${s[1]}</p>`+s[2].map((o,i)=>`<label><input type="radio" name="c5" data-i="${i}"><div><b>${o[0]}</b></div></label>`).join('');}
+  $('choice5').onchange=e=>{const i=+e.target.dataset.i,o=S[k][2][i];
+    if(k===0)parts.영주+=8;if(k===2&&i===0)parts.교회+=10;if(k===2&&i===1)parts.교회+=5;if(k===3)parts.세금기타+=(i?9:6);if(k===1&&i===1)keep+=6;if(k===0&&i===1){parts.영주-=8;parts.세금기타+=6;}
+    $('log5').innerHTML+=`<br><b>${S[k][0]}</b>: ${o[2]}`;k++;draw();};
+  $('bReset5').onclick=reset;reset();
+})();
+
+/* 6 */
+(function(){
+  const WHO={기사:['둘째 아들이라 물려받을 땅이 없다.','죄 사함과 새 영지',[['떠난다','예루살렘까지 간 기사는 일부였다. 많은 이가 길에서 병과 굶주림으로 죽었다. 살아남아 영지를 얻은 사람도 있었다.'],['남는다','형의 기사로 일하며 살았다. 떠나지 않은 기사도 많았다.']]],
+    농민:['흉년과 빚에 시달린다. 설교자의 말이 귀에 맴돈다.','죄 사함과 새 삶',[['떠난다','1096년 은자 피에르를 따라간 민중 십자군은 제대로 된 준비 없이 떠나 소아시아에서 대부분 무너졌다.'],['남는다','마을에 남아 장원의 일을 이어 갔다.']]],
+    상인:['베네치아의 상인이다. 배를 빌려 달라는 요청이 왔다.','무역 이익',[['배를 빌려준다','지중해 동쪽 항구에서 장사할 권리를 얻었다. 4차 십자군 때는 빚을 갚게 하려고 콘스탄티노폴리스 공격에 끼어들었다.'],['거절한다','다른 도시 상인들이 그 이익을 가져갔다.']]],
+    유대인:['라인강 가 도시에 산다. 십자군이 지나간다는 소문이 돈다.','살아남기',[['도시를 떠난다','몇몇 공동체는 피신했지만, 1096년 마인츠 등에서는 십자군 무리가 유대인 공동체를 공격했다.'],['주교에게 보호를 청한다','일부 주교가 보호하려 했으나 모두 지켜 내지는 못했다.']]]};
+  $('who6').innerHTML=Object.keys(WHO).map(k=>`<button class="pick" type="button" data-k="${k}">${k}<small>${WHO[k][1]}</small></button>`).join('');
+  $('who6').onclick=e=>{const b=e.target.closest('.pick');if(!b)return;const k=b.dataset.k,w=WHO[k];[...$('who6').children].forEach(c=>c.setAttribute('aria-pressed',c===b));
+    $('rep6').hidden=true;$('step6').innerHTML=`<div class="card"><p style="margin:0 0 10px">${w[0]}</p><div class="btns">${w[2].map((o,i)=>`<button class="${i?'':'go'}" type="button" data-o="${i}">${o[0]}</button>`).join('')}</div></div>`;
+    $('step6').onclick=ev=>{const x=ev.target.closest('[data-o]');if(!x)return;const o=w[2][+x.dataset.o];$('rep6').hidden=false;
+      $('rep6').innerHTML=`<h3>${k}의 선택 · ${o[0]}</h3><p>${o[1]}</p><p class="miss-list">다른 사람으로도 해 보고, 같은 전쟁이 사람마다 어떻게 달랐는지 견주어 보세요.</p>`;};};
+})();
+</script>
+</body>
+</html>

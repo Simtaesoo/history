@@ -281,5 +281,6 @@ window.CATALOG = [
 window.FILES = {
   'm1/basics': { slides:[1,2,3], sim:[1,2,3], ws:true, game:{ href:'app-sort.html', title:'사료 감별사' } },
   'm1/ancient': { slides:[1,2,3,4,5,6], sim:[1,2,3,4,5,6], ws:true, game:{ href:'app-civ.html', title:'문명 감정단' } },
+  'm1/religion': { slides:[1,2,3,4,5,6], sim:[1,2,3,4,5,6], ws:true, game:{ href:'app-faith.html', title:'순례자의 수첩' } },
   'm2/modern': { slides:[4], sim:[4], ws:true, game:{ href:'app-timeline.html', title:'근현대 연표 퍼즐' } }
 };
