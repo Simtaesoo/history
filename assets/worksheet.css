@@ -33,7 +33,7 @@ table.grid th,table.grid td{border:1px solid var(--line);padding:2mm 3mm;vertica
 table.grid th{background:#f4f1ea;font-weight:700;width:22mm}
 table.grid td{height:14mm}
 .lines{border-bottom:1px solid var(--line);height:8mm}
-.blank{display:inline-block;min-width:22mm;border-bottom:1px solid var(--ink);text-align:center;padding:0 2mm}
+.blank{display:inline-block;max-width:100%;min-width:22mm;border-bottom:1px solid var(--ink);text-align:center;padding:0 2mm}
 .ans{color:var(--red);font-weight:600;visibility:hidden}
 .show-ans .ans{visibility:visible}
 p.ans,div.ans{font-size:12px;margin:1mm 0 0}
