@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>시뮬레이션 · 역사① 1단원 역사 학습의 기초</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700;900&family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="../../assets/sim.css">
+</head>
+<body>
+<div class="top"><a href="../index.html#u1">← 역사① 목록</a><nav id="nav"></nav></div>
+
+<!-- 1차시: 실록을 지켜라 -->
+<section class="panel" data-lesson="1">
+  <h1>실록을 지켜라</h1>
+  <p class="q">기록이 300년을 살아남으려면 어떻게 보관해야 할까?</p>
+  <div class="stage">
+    <div>
+      <div class="card"><p style="margin:0 0 10px">한 번 돌릴 때마다 <b>100가지 서로 다른 300년</b>을 만들어 봅니다. 불, 전쟁이 무작위로 찾아옵니다. 한 부라도 남은 300년은 금색, 모두 사라진 300년은 붉은색.</p>
+        <div class="dots" id="dots"></div></div>
+      <div style="display:flex;gap:24px;flex-wrap:wrap;margin-top:14px;align-items:flex-end">
+        <div><div class="big" id="rate">–</div><small style="color:var(--dim)">살아남은 비율</small></div>
+        <div style="flex:1;min-width:220px" class="fb" id="story">보관 방법을 고르고 [300년 돌리기]를 눌러 보세요.</div>
+      </div>
+      <div class="log" id="log1"></div>
+    </div>
+    <div class="side">
+      <div class="rng"><label for="nCopy">몇 부를 만들까? <b id="nCopyV">1부</b></label><input type="range" id="nCopy" min="1" max="5" value="1"></div>
+      <div class="sw">
+        <label><input type="checkbox" id="oMount"><div><b>깊은 산속에 보관</b><span>도시보다 전쟁과 큰불을 덜 겪는다</span></div></label>
+        <label><input type="checkbox" id="oSpread" checked><div><b>여러 곳에 나누어 보관</b><span>끄면 모든 부를 한 건물에 둔다</span></div></label>
+        <label><input type="checkbox" id="oCopy"><div><b>잃으면 다시 베끼기</b><span>한 부라도 남으면 전쟁이 끝난 뒤 다시 채운다</span></div></label>
+      </div>
+      <div class="btns"><button class="go" id="bRun1" type="button">300년 돌리기</button></div>
+      <p class="note">실제 기록이 아니라 생각해 보기 위한 <b>모형</b>입니다. 300년 동안 큰 전쟁이 세 번쯤 일어난다고 가정했습니다.</p>
+    </div>
+  </div>
+  <h2 class="sub">실제로는 어땠을까?</h2>
+  <div class="card" id="real1" hidden>임진왜란(1592) 무렵 실록은 서울 춘추관과 충주·성주·전주 네 곳에 있었습니다. 전쟁으로 세 곳이 불타고 <b>전주 사고본만</b> 남았습니다. 전쟁 뒤 이 한 부를 바탕으로 다시 찍어, 춘추관과 강화·태백산·묘향산(뒤에 적상산)·오대산처럼 <b>산속</b> 사고에 나누어 두었습니다.</div>
+  <div class="btns" style="margin-top:8px"><button type="button" id="bReal1">실제 이야기 보기</button></div>
+</section>
+
+<!-- 2차시: 타임캡슐 -->
+<section class="panel" data-lesson="2">
+  <h1>2126년의 역사가</h1>
+  <p class="q">물건 네 개만 남는다면, 100년 뒤 사람들은 우리를 어떻게 이해할까?</p>
+  <p class="how" style="color:var(--dim);margin:14px 0 8px">타임캡슐에 넣을 물건을 <b id="left2">4</b>개 더 고르세요.</p>
+  <div class="grid2" id="items2"></div>
+  <div class="btns" style="margin-top:14px"><button class="go" id="bOpen2" type="button" disabled>100년 뒤에 열기</button><button id="bReset2" type="button">다시 고르기</button></div>
+  <div class="report" id="report2" hidden></div>
+</section>
+
+<!-- 3차시: 교차 검증 실험실 -->
+<section class="panel" data-lesson="3">
+  <h1>도서관 창문은 누가 깼을까?</h1>
+  <p class="q">자료 다섯 개가 서로 다른 말을 한다. 어느 자료를 얼마나 믿을까?</p>
+  <p style="color:var(--dim);font-size:13.5px">지어낸 사건입니다. 금요일 저녁 학교 도서관 창문 한 장이 깨진 채 발견되었습니다. 자료마다 세 가지를 따져 표시하고, 마지막에 결론을 고르세요.</p>
+  <div id="src3" style="display:flex;flex-direction:column;gap:10px;margin-top:12px"></div>
+  <h2 class="sub">결론</h2>
+  <div class="grid2" id="concl3"></div>
+  <div class="fb" id="fb3" hidden style="margin-top:12px"></div>
+</section>
+
+<p class="soon" id="soon" hidden>이 차시 시뮬레이션은 준비 중입니다.</p>
+
+<script src="../../assets/sim.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+
+/* ── 1차시: 사고 보관 모형 ── */
+(function(){
+  $('dots').innerHTML='<i></i>'.repeat(100);
+  $('nCopy').oninput=()=>{$('nCopyV').textContent=$('nCopy').value+'부';};
+  function trial(n,mount,spread,recopy){
+    // 보관 장소: spread면 부마다 다른 곳, 아니면 한 곳
+    const places=spread?n:1, copies=Array.from({length:n},(_,i)=>({place:spread?i:0,alive:true}));
+    const wars=[0,1,2].map(()=>Math.floor(Math.random()*300));
+    const fire=mount?.0012:.004, warHit=mount?.15:.6;
+    for(let y=0;y<300;y++){
+      for(let p=0;p<places;p++){
+        let lost=Math.random()<fire;
+        if(wars.includes(y)&&Math.random()<warHit)lost=true;
+        if(lost)copies.forEach(c=>{if(c.place===p)c.alive=false;});
+      }
+      const alive=copies.filter(c=>c.alive).length;
+      if(alive===0)return false;
+      if(recopy&&wars.includes(y-1)&&alive<n)copies.forEach(c=>c.alive=true);
+    }
+    return true;
+  }
+  $('bRun1').onclick=()=>{
+    const n=+$('nCopy').value,m=$('oMount').checked,s=$('oSpread').checked,r=$('oCopy').checked;
+    let ok=0;const res=[];for(let i=0;i<100;i++){const t=trial(n,m,s,r);res.push(t);if(t)ok++;}
+    [...$('dots').children].forEach((d,i)=>d.className=res[i]?'ok':'no');
+    $('rate').textContent=ok+'%';
+    $('story').textContent=ok>=90?'거의 언제나 살아남습니다. 무엇이 가장 큰 도움이 되었을까요?':ok>=50?'절반쯤 살아남습니다. 무엇을 하나 더 바꾸면 좋을까요?':'대부분 사라집니다. 한 번의 전쟁이나 불이면 끝입니다.';
+    const tag=`${n}부 · ${m?'산속':'도시'} · ${s?'나눔':'한곳'}${r?' · 다시 베낌':''}`;
+    $('log1').insertAdjacentHTML('afterbegin',`<div>${tag}<br><b>${ok}%</b> 살아남음</div>`);
+  };
+  $('bReal1').onclick=()=>{$('real1').hidden=false;};
+})();
+
+/* ── 2차시: 타임캡슐 ── */
+(function(){
+  // [이름, 종류, 역사가의 추론, 놓치는 것]
+  const ITEMS=[
+    ['스마트폰(배터리 없음)','물건','손바닥만 한 유리판을 하루 종일 들고 다녔다. 켤 수 없어 무엇을 했는지는 알 수 없다.','그 안의 대화와 사진, 친구 관계'],
+    ['급식 식단표 한 달 치','글','학교에서 모두 같은 점심을 먹었고 매일 국과 반찬 셋이 나왔다.','누가 무엇을 남겼는지, 맛있었는지'],
+    ['교복 한 벌','물건','학생은 같은 옷을 입어야 했다. 몸집은 지금과 비슷했다.','교복을 줄여 입던 멋, 싫어하던 마음'],
+    ['수학 시험지(점수 적힘)','글','시험으로 학생을 점수로 나누었다.','시험 전날의 긴장, 학원'],
+    ['일기장','글','하루하루의 기분과 고민을 손으로 적었다.','일기를 쓰지 않는 대부분의 학생'],
+    ['보정한 생일 사진','그림','모두 피부가 매끈하고 눈이 컸다.','보정 앱의 존재 — 실제 얼굴'],
+    ['게임기','물건','여가 시간을 화면 속 놀이로 보냈다.','함께 게임한 친구, 온라인 세계'],
+    ['일회용 마스크','물건','얼굴을 가리는 천을 썼다. 왜 썼는지는 알기 어렵다.','감염병 유행이라는 사건의 맥락'],
+    ['편의점 영수증','글','삼각김밥이 1,500원 안팎이었다.','왜 혼자 저녁을 사 먹었는지'],
+    ['학급 단체 사진','그림','한 반에 25명쯤, 모두 웃으며 브이를 했다.','사진을 찍지 않은 날의 교실'],
+    ['손편지','글','친한 친구끼리 손글씨로 마음을 전했다.','대부분의 대화는 메신저로 했다는 사실'],
+    ['SNS 게시물 출력본','글','많은 사람에게 자신을 보여 주는 글을 매일 올렸다.','올리지 않은 일상, 지운 글']];
+  let picked=[];
+  function render(){
+    $('items2').innerHTML=ITEMS.map((t,i)=>`<button class="pick" type="button" data-i="${i}" aria-pressed="${picked.includes(i)}">${t[0]}<small>${t[1]}</small></button>`).join('');
+    $('left2').textContent=4-picked.length;$('bOpen2').disabled=picked.length!==4;
+  }
+  $('items2').onclick=e=>{const b=e.target.closest('.pick');if(!b||!$('report2').hidden)return;const i=+b.dataset.i;
+    if(picked.includes(i))picked=picked.filter(x=>x!==i);else if(picked.length<4)picked.push(i);render();};
+  $('bOpen2').onclick=()=>{
+    const P=picked.map(i=>ITEMS[i]),kinds=new Set(P.map(p=>p[1]));
+    $('report2').innerHTML=`<h3>「2020년대 청소년의 삶」 — 2126년 역사가의 보고서</h3>`+
+      `<p>${P.map(p=>p[2]).join(' ')}</p>`+
+      `<p class="miss-list"><b>이 캡슐이 말하지 않는 것</b>: ${P.map(p=>p[3]).join(' · ')}</p>`+
+      `<p><b>사료의 종류</b>: ${[...kinds].join(', ')}${kinds.size<3?' — 한쪽으로 치우쳤다. 다른 종류가 있었다면?':''}</p>`+
+      `<p><b>생각해 볼 질문</b>: 이 보고서에서 가장 크게 오해한 것은? 오해를 줄이려면 무엇을 바꿔 넣을까?</p>`;
+    $('report2').hidden=false;$('bOpen2').disabled=true;
+  };
+  $('bReset2').onclick=()=>{picked=[];$('report2').hidden=true;render();};
+  render();
+})();
+
+/* ── 3차시: 교차 검증 ── */
+(function(){
+  // [이름, 내용, 그때?, 직접?, 이해관계 없음?, 해설]
+  const S=[
+    ['경비원 근무 일지','금요일 19:40 순찰 때 도서관 창문 이상 없음. 21:10 순찰 때 깨진 창문 발견. 운동장 쪽에 축구공 하나.',1,1,1,'그때, 직접 본 것을 적었고 숨길 까닭이 적다. 다만 19:40~21:10 사이는 보지 못했다.'],
+    ['학생 SNS 글(월요일)','“들었는데 3학년 형들이 일부러 돌 던졌대ㅋㅋ”',0,0,1,'나중에, 남에게 들은 말(소문)이다. 근거가 없다.'],
+    ['운동장 CCTV 사진 한 장','금요일 20:25, 축구공을 차는 학생 셋. 도서관 창문은 사진 밖.',1,1,1,'그때의 기록이지만 창문이 찍히지 않았다. 무엇을 보여 주고 무엇을 보여 주지 않는지 살펴야 한다.'],
+    ['축구 동아리 학생 진술','“우리는 20시에 다 집에 갔어요. 창문 근처엔 가지도 않았어요.”',0,1,0,'겪은 사람의 말이지만, 의심받는 쪽이라 자신을 지키려는 마음이 있을 수 있다. CCTV 시각과 맞지 않는다.'],
+    ['교장 선생님 공지문','“외부인의 침입으로 창문이 파손되었습니다. 학생들은 동요하지 마십시오.”',0,0,0,'나중에, 학교를 진정시키려는 목적으로 쓴 글이다. 근거가 밝혀져 있지 않다.']];
+  const CRIT=['그때 만든 것','직접 보거나 겪은 것','숨길 까닭이 적은 사람'];
+  $('src3').innerHTML=S.map((s,i)=>`<div class="card"><b>${String.fromCharCode(65+i)}. ${s[0]}</b><p style="margin:6px 0 8px;color:var(--dim)">${s[1]}</p>`+
+    CRIT.map((c,j)=>`<label style="margin-right:14px;font-size:13.5px"><input type="checkbox" data-s="${i}" data-c="${j}"> ${c}</label>`).join('')+
+    `<div class="fb" data-fb="${i}" hidden style="margin-top:8px"></div></div>`).join('');
+  const C=[['외부인이 일부러 깼다','교장 공지만 이 결론을 말한다. 다른 자료가 받쳐 주지 않는다.',0],
+           ['3학년이 일부러 돌을 던졌다','소문(B)뿐이다. 근거가 되는 그때의 자료가 없다.',0],
+           ['저녁 축구를 하던 학생들의 공에 맞았을 가능성이 크다','A(축구공, 깨진 시각), C(20:25 축구), D와의 어긋남이 함께 이쪽을 가리킨다. 그래도 “확실하다”가 아니라 “가능성이 크다”. 창문이 찍힌 자료는 없다.',1]];
+  $('concl3').innerHTML=C.map((c,i)=>`<button class="pick" type="button" data-k="${i}">${c[0]}</button>`).join('');
+  $('concl3').onclick=e=>{const b=e.target.closest('.pick');if(!b)return;const k=+b.dataset.k;
+    [...$('concl3').children].forEach(x=>x.setAttribute('aria-pressed',x===b));
+    // 학생 표시와 해설 비교
+    S.forEach((s,i)=>{const mine=CRIT.map((_,j)=>document.querySelector(`input[data-s="${i}"][data-c="${j}"]`).checked?1:0);
+      const right=[s[2],s[3],s[4]],same=mine.filter((m,j)=>m===right[j]).length;
+      const f=document.querySelector(`[data-fb="${i}"]`);f.hidden=false;f.innerHTML=`세 기준 중 <b>${same}/3</b> 일치 · ${s[5]}`;});
+    $('fb3').hidden=false;$('fb3').innerHTML=(C[k][2]?'<b>근거가 가장 많이 받쳐 주는 결론입니다.</b> ':'<b>다시 생각해 보세요.</b> ')+C[k][1];};
+})();
+</script>
+</body>
+</html>

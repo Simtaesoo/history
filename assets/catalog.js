@@ -279,5 +279,6 @@ window.CATALOG = [
 /* 만들어진 자료. 새로 만들면 여기에 적습니다. 키: '과목/단원폴더'
    slides·sim: 만들어진 차시 번호, ws: 학습지, game: 게임 {href, title} */
 window.FILES = {
+  'm1/basics': { slides:[1,2,3], sim:[1,2,3], ws:true, game:{ href:'app-sort.html', title:'사료 감별사' } },
   'm2/modern': { slides:[4], sim:[4], ws:true, game:{ href:'app-timeline.html', title:'근현대 연표 퍼즐' } }
 };
