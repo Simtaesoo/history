@@ -1,0 +1,61 @@
+/* 수업 슬라이드 공통 디자인 (3·1 운동 샘플 형식). 장마다 <section class="s" data-note="교사 메모">. */
+:root{--ink:#f3efe6;--dim:rgba(243,239,230,.62);--bg:#121110;--red:#c8432f;--gold:#d9b25f;--serif:'Noto Serif KR','Nanum Myeongjo',serif;--sans:'IBM Plex Sans KR',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden}
+.deck{position:fixed;inset:0}
+.s{position:absolute;inset:0;opacity:0;transition:opacity .6s ease;pointer-events:none;display:flex;align-items:center;justify-content:center}
+.s.on{opacity:1;pointer-events:auto}
+/* 사진 */
+.ph{position:absolute;inset:0;overflow:hidden;background:#1d1b19}
+.ph img{width:100%;height:100%;object-fit:contain;filter:grayscale(1) contrast(1.08) brightness(.82);transform:scale(1.02);transition:transform 9s ease-out}
+.s.on .ph img{transform:scale(1.07)}
+.ph.cover img{object-fit:cover}
+.ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.15) 0%,rgba(0,0,0,0) 35%,rgba(0,0,0,.55) 100%)}
+.ph .miss{position:absolute;inset:0;display:none;align-items:center;justify-content:center;flex-direction:column;gap:8px;color:var(--dim);font-size:15px;text-align:center;padding:30px;border:2px dashed rgba(243,239,230,.2);margin:40px;border-radius:16px}
+.ph.err img{display:none}.ph.err .miss{display:flex}
+/* 큰 낱말 */
+.word{position:absolute;left:6vw;bottom:9vh;font-family:var(--serif);font-weight:900;font-size:min(13vw,150px);line-height:1;letter-spacing:-.02em;text-shadow:0 4px 30px rgba(0,0,0,.6)}
+.word small{display:block;font-family:var(--sans);font-weight:500;font-size:min(2.2vw,20px);letter-spacing:.02em;color:var(--dim);margin-top:14px}
+.tag{position:absolute;left:6vw;top:7vh;font-size:14px;letter-spacing:.2em;color:var(--gold);font-weight:700}
+/* 발문 */
+.q{max-width:min(1100px,88vw);text-align:center}
+.q .mark{font-family:var(--serif);font-size:min(16vw,170px);color:var(--red);line-height:.6;height:.5em;display:block}
+.q h2{font-family:var(--serif);font-weight:700;font-size:min(5.4vw,62px);line-height:1.35;letter-spacing:-.01em}
+.q .lad{margin-top:5vh;display:flex;flex-direction:column;gap:14px;align-items:center}
+.q .lad p{font-size:min(2.6vw,26px);color:var(--dim);opacity:0;transform:translateY(8px);transition:.45s}
+.q .lad p.show{opacity:1;transform:none;color:var(--ink)}
+.q .lad p b{color:var(--gold);font-weight:700;margin-right:10px;font-size:.75em;letter-spacing:.12em}
+.onphoto{position:absolute;right:5vw;top:8vh;max-width:min(46vw,560px);text-align:right}
+.onphoto h2{font-family:var(--serif);font-weight:700;font-size:min(3.6vw,40px);line-height:1.4;text-shadow:0 2px 20px rgba(0,0,0,.8);background:rgba(18,17,16,.55);padding:14px 20px;border-radius:12px;display:inline-block}
+.onphoto .lad{margin-top:12px;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.onphoto .lad p{font-size:min(2vw,20px);background:rgba(18,17,16,.7);padding:8px 14px;border-radius:10px;opacity:0;transition:.45s}
+.onphoto .lad p.show{opacity:1}
+.onphoto .lad p b{color:var(--gold);margin-right:8px;font-size:.8em}
+/* 낱말 묶음 */
+.trio{display:flex;gap:6vw;align-items:flex-end;justify-content:center;flex-wrap:wrap}
+.trio div{text-align:center;opacity:0;transform:translateY(10px);transition:.5s}
+.trio div.show{opacity:1;transform:none}
+.trio b{display:block;font-family:var(--serif);font-weight:900;font-size:min(9vw,104px);line-height:1}
+.trio span{display:block;margin-top:12px;color:var(--dim);font-size:min(1.8vw,18px)}
+.num{font-family:var(--serif);font-weight:900;font-size:min(10vw,120px);color:var(--gold);line-height:1}
+.pair{display:grid;grid-template-columns:1fr 1fr;width:100%;height:100%}
+.pair .ph{position:relative}
+.pair .cap{position:absolute;left:24px;bottom:22px;font-family:var(--serif);font-weight:900;font-size:min(6vw,72px);text-shadow:0 4px 24px rgba(0,0,0,.8)}
+.center{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.src{position:absolute;right:16px;bottom:12px;font-size:11px;color:rgba(243,239,230,.45);max-width:60vw;text-align:right}
+.fill{border-bottom:3px solid var(--gold);display:inline-block;min-width:5em}
+/* 바닥 막대 */
+.bar{position:fixed;left:0;bottom:0;height:3px;background:var(--red);transition:width .4s;z-index:5}
+.hud{position:fixed;left:16px;bottom:10px;font-size:12px;color:rgba(243,239,230,.45);z-index:5;letter-spacing:.05em}
+.notes{position:fixed;right:0;top:0;bottom:0;width:min(420px,92vw);background:#f3efe6;color:#1d1b19;padding:26px 24px;overflow:auto;transform:translateX(100%);transition:transform .3s;z-index:9;font-size:14.5px;line-height:1.7;box-shadow:-10px 0 40px rgba(0,0,0,.4)}
+.notes.on{transform:none}
+.notes h4{font-size:12px;letter-spacing:.18em;color:#a5381f;margin-bottom:10px}
+.notes p{margin-bottom:10px}.notes b{color:#a5381f}
+.help{position:fixed;right:16px;top:12px;z-index:6;display:flex;gap:6px}
+.help button{background:rgba(243,239,230,.1);color:var(--ink);border:1px solid rgba(243,239,230,.2);border-radius:999px;padding:6px 12px;font:500 12.5px var(--sans);cursor:pointer}
+.help button:hover{background:rgba(243,239,230,.2)}
+@media (max-width:700px){.onphoto{left:5vw;right:5vw;max-width:none;text-align:left}.onphoto .lad{align-items:flex-start}.pair{grid-template-columns:1fr;grid-template-rows:1fr 1fr}}
+@media (prefers-reduced-motion:reduce){.ph img{transition:none}.s.on .ph img{transform:scale(1.02)}}
+.src a{color:inherit}
+.home{position:fixed;left:16px;top:12px;z-index:6;font-size:12.5px;color:rgba(243,239,230,.55);text-decoration:none;border:1px solid rgba(243,239,230,.2);border-radius:999px;padding:6px 12px}
+.home:hover{color:var(--ink)}

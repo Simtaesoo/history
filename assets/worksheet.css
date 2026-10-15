@@ -1,0 +1,45 @@
+/* 학습지 공통 디자인. A4 세로, 차시마다 한 면(.sheet). [정답 보기]를 켜면 .ans가 붉은 글씨로 나타납니다. */
+:root{--ink:#1d1b19;--dim:#6b645b;--line:#cfc7b8;--red:#b0341c;--gold:#8a6a22;--paper:#ffffff;--desk:#e9e5dc;
+  --serif:'Noto Serif KR','Nanum Myeongjo',serif;--sans:'IBM Plex Sans KR',system-ui,sans-serif}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--desk);color:var(--ink);font:14px/1.6 var(--sans)}
+.bar{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;background:#1d1b19;color:#f3efe6;padding:10px max(16px,env(safe-area-inset-left,0px))}
+.bar a{color:#f3efe6;font-size:13px;text-decoration:none;opacity:.75}
+.bar .tools{display:flex;gap:6px;flex-wrap:wrap}
+.bar button{font:500 13px var(--sans);border:1px solid rgba(243,239,230,.3);background:transparent;color:#f3efe6;border-radius:999px;padding:5px 14px;cursor:pointer}
+.bar button[aria-pressed="true"]{background:var(--red);border-color:var(--red)}
+.sheets{display:flex;flex-direction:column;align-items:center;gap:24px;padding:24px 12px 60px}
+.sheet{width:210mm;max-width:100%;min-height:297mm;background:var(--paper);box-shadow:0 2px 14px rgba(0,0,0,.12);padding:14mm 15mm;display:flex;flex-direction:column;gap:5mm}
+.sheet header{display:grid;grid-template-columns:1fr auto;gap:4mm;align-items:end;border-bottom:2px solid var(--ink);padding-bottom:3mm}
+.sheet .kicker{font-size:11px;letter-spacing:.16em;color:var(--gold);font-weight:700}
+.sheet h1{font-family:var(--serif);font-weight:900;font-size:24px;line-height:1.25;margin:2px 0 0}
+.who{display:grid;grid-template-columns:repeat(4,auto);gap:0;border:1px solid var(--ink);font-size:12px}
+.who span{padding:3px 8px;border-left:1px solid var(--ink);min-width:15mm}
+.who span:first-child{border-left:0}
+.std{font-size:11.5px;color:var(--dim);margin:0}
+.big-q{border:2px solid var(--red);border-radius:6px;padding:4mm 5mm;font-family:var(--serif);font-size:18px;font-weight:700;display:flex;gap:4mm;align-items:baseline}
+.big-q b{font-family:var(--sans);font-size:11px;letter-spacing:.14em;color:var(--red);white-space:nowrap}
+section.part{display:flex;flex-direction:column;gap:2.5mm}
+section.part h2{font-size:14px;margin:0;display:flex;gap:3mm;align-items:baseline}
+section.part h2 i{font-style:normal;color:var(--paper);background:var(--ink);border-radius:3px;padding:0 6px;font-size:11.5px}
+.photo{display:grid;grid-template-columns:62mm 1fr;gap:4mm;align-items:start}
+.photo figure{margin:0}
+.photo img{width:100%;aspect-ratio:4/3;object-fit:cover;filter:grayscale(1);background:#eee;display:block}
+.photo .miss{display:none;aspect-ratio:4/3;border:1.5px dashed var(--line);color:var(--dim);font-size:11px;align-items:center;justify-content:center;text-align:center;padding:4mm}
+.photo figure.err img{display:none}.photo figure.err .miss{display:flex}
+.photo figcaption{font-size:9.5px;color:var(--dim);margin-top:1mm;line-height:1.35}
+table.grid{width:100%;border-collapse:collapse;font-size:12.5px}
+table.grid th,table.grid td{border:1px solid var(--line);padding:2mm 3mm;vertical-align:top;text-align:left}
+table.grid th{background:#f4f1ea;font-weight:700;width:22mm}
+table.grid td{height:14mm}
+.lines{border-bottom:1px solid var(--line);height:8mm}
+.blank{display:inline-block;min-width:22mm;border-bottom:1px solid var(--ink);text-align:center;padding:0 2mm}
+.ans{color:var(--red);font-weight:600;visibility:hidden}
+.show-ans .ans{visibility:visible}
+p.ans,div.ans{font-size:12px;margin:1mm 0 0}
+.src-list{font-size:10px;color:var(--dim);border-top:1px solid var(--line);padding-top:2mm;margin-top:auto}
+.write{border:1.5px solid var(--ink);border-radius:6px;padding:4mm 5mm;font-family:var(--serif);font-size:16px;line-height:2.2}
+@media (max-width:640px){.sheet{padding:18px 16px;min-height:0}.photo{grid-template-columns:1fr}.who{grid-template-columns:repeat(2,auto)}.sheet header{grid-template-columns:1fr}}
+@page{size:A4;margin:0}
+@media print{html,body{background:#fff}.bar{display:none}.sheets{padding:0;gap:0}.sheet{box-shadow:none;page-break-after:always;width:210mm;min-height:297mm}
+  body:not(.show-ans) .ans{visibility:hidden}}
