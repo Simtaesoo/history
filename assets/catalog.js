@@ -280,5 +280,6 @@ window.CATALOG = [
    slides·sim: 만들어진 차시 번호, ws: 학습지, game: 게임 {href, title} */
 window.FILES = {
   'm1/basics': { slides:[1,2,3], sim:[1,2,3], ws:true, game:{ href:'app-sort.html', title:'사료 감별사' } },
+  'm1/ancient': { slides:[1,2,3,4,5,6], sim:[1,2,3,4,5,6], ws:true, game:{ href:'app-civ.html', title:'문명 감정단' } },
   'm2/modern': { slides:[4], sim:[4], ws:true, game:{ href:'app-timeline.html', title:'근현대 연표 퍼즐' } }
 };

@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>시뮬레이션 · 역사① 2단원 문명의 발생과 고대 세계의 형성</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700;900&family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="../../assets/sim.css">
+<style>
+table.t{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums}
+table.t th,table.t td{border-bottom:1px solid var(--faint);padding:6px 8px;text-align:left}
+table.t td.n{text-align:right}
+.bar2{height:22px;border-radius:6px;background:var(--faint);overflow:hidden;display:flex}
+.bar2 i{display:block;height:100%}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;color:var(--dim);margin-top:8px}
+.legend b{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;vertical-align:-1px}
+</style>
+</head>
+<body>
+<div class="top"><a href="../index.html#u2">← 역사① 목록</a><nav id="nav"></nav></div>
+
+<!-- 1 -->
+<section class="panel" data-lesson="1">
+  <h1>사냥 마을, 농사 마을</h1>
+  <p class="q">농사를 많이 지을수록 마을은 어떻게 달라질까?</p>
+  <div class="stage">
+    <div><canvas id="cv1" width="760" height="420" aria-label="200년 동안의 마을 인구와 일하는 시간 그래프"></canvas>
+      <table class="t" id="tb1" style="margin-top:12px"></table></div>
+    <div class="side">
+      <div class="rng"><label for="farm">먹을거리 가운데 농사의 몫 <b id="farmV">0%</b></label><input type="range" id="farm" min="0" max="100" step="10" value="0"></div>
+      <div class="sw"><label><input type="checkbox" id="anim" checked><div><b>가축 기르기</b><span>고기와 젖을 얻지만 동물에게서 옮는 병도 생긴다</span></div></label></div>
+      <div class="btns"><button class="go" id="bRun1" type="button">200년 돌리기</button></div>
+      <p class="note">고고학 연구가 보여 주는 <b>방향</b>을 따라 만든 모형입니다. 숫자는 실제 기록이 아닙니다. 0%와 100%를 견주어 보세요.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 2 -->
+<section class="panel" data-lesson="2">
+  <h1>나일강의 곡식 창고</h1>
+  <p class="q">해마다 바뀌는 강물을 어떻게 견딜까?</p>
+  <div class="stage">
+    <div>
+      <div class="card" id="nileLog" style="min-height:260px;font-size:14px;line-height:1.8"></div>
+      <div style="display:flex;gap:24px;margin-top:12px;flex-wrap:wrap;align-items:flex-end">
+        <div><div class="big" id="nileYear">1년</div><small style="color:var(--dim)">20년 가운데</small></div>
+        <div><div class="big" id="nileStore">0</div><small style="color:var(--dim)">창고의 곡식(가마)</small></div>
+        <div><div class="big" id="nileHunger" style="color:var(--red)">0</div><small style="color:var(--dim)">굶주린 해</small></div>
+      </div>
+    </div>
+    <div class="side">
+      <div class="rng"><label for="keep">거둔 곡식 중 창고에 넣을 몫 <b id="keepV">20%</b></label><input type="range" id="keep" min="0" max="50" step="5" value="20"></div>
+      <div class="sw">
+        <label><input type="checkbox" id="canal"><div><b>물길(관개 수로) 파기</b><span>사람을 써야 하지만 물이 적은 해에도 덜 줄어든다</span></div></label>
+        <label><input type="checkbox" id="write2"><div><b>창고 장부 쓰기(문자)</b><span>새거나 빼돌려지는 곡식이 줄어든다</span></div></label>
+      </div>
+      <div class="btns"><button class="go" id="bYear" type="button">한 해 보내기</button><button id="bAll" type="button">끝까지</button><button id="bReset2" type="button">처음으로</button></div>
+      <p class="note">마을에는 해마다 곡식 100가마가 필요합니다. 강물이 알맞으면 140가마, 적으면 80가마, 너무 많으면 100가마를 거둔다고 가정한 <b>모형</b>입니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3 -->
+<section class="panel" data-lesson="3">
+  <h1>아테네의 민회</h1>
+  <p class="q">누구에게 투표권을 주면, 몇 사람이 나라 일을 정하게 될까?</p>
+  <div class="card" style="margin-top:16px">
+    <div class="bar2" id="pop3"></div><div class="legend" id="leg3"></div>
+  </div>
+  <div class="grid2" id="who3" style="margin-top:12px"></div>
+  <div style="display:flex;gap:24px;align-items:flex-end;flex-wrap:wrap;margin-top:14px">
+    <div><div class="big" id="share3">–</div><small style="color:var(--dim)">아테네에 사는 사람 가운데 투표하는 사람</small></div>
+    <p class="note" style="flex:1;min-width:240px">기원전 5세기 아테네 인구는 기록이 없어 학자마다 추정이 다릅니다. 여기서는 그 가운데 한 가지(성인 남성 시민 약 4만, 그 가족 약 12만, 외국인 약 3만, 노예 약 8만)를 썼습니다.</p>
+  </div>
+</section>
+
+<!-- 4 -->
+<section class="panel" data-lesson="4">
+  <h1>길을 놓는 원로원</h1>
+  <p class="q">한정된 돈으로 어떤 길을 놓아야 제국이 가장 단단해질까?</p>
+  <div class="stage">
+    <div><canvas id="cv4" width="760" height="500" aria-label="로마와 여덟 속주를 잇는 길 놓기 판"></canvas></div>
+    <div class="side">
+      <div class="day" id="bud4">예산 100<small>도시 두 곳을 차례로 누르면 길을 놓습니다</small></div>
+      <table class="t" id="tb4"></table>
+      <div class="btns"><button id="bReset4" type="button">길 모두 걷기</button></div>
+      <p class="note">길이 없으면 하루 10칸, 길 위에서는 하루 30칸을 간다고 가정한 <b>모형</b>입니다. 로마에서 열흘 넘게 걸리는 곳은 반란이 일어나도 군대가 늦게 닿습니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 5 -->
+<section class="panel" data-lesson="5">
+  <h1>제자백가 상담소</h1>
+  <p class="q">같은 문제에 사상가들은 어떤 처방을 내렸을까?</p>
+  <h2 class="sub">1. 고민을 고르세요</h2><div class="grid2" id="prob5"></div>
+  <h2 class="sub">2. 상담할 사상가를 고르세요</h2><div class="grid2" id="school5"></div>
+  <div class="report" id="rep5" style="margin-top:16px" hidden></div>
+</section>
+
+<!-- 6 -->
+<section class="panel" data-lesson="6">
+  <h1>비단 한 필의 여행</h1>
+  <p class="q">장안에서 출발한 비단은 로마에 닿을 때 몇 배가 될까?</p>
+  <div class="stage">
+    <div><div class="card" id="route6" style="font-size:14px"></div>
+      <div style="display:flex;gap:24px;margin-top:12px;align-items:flex-end;flex-wrap:wrap"><div><div class="big" id="mult6">–</div><small style="color:var(--dim)">장안 값의 몇 배</small></div><p class="note" style="flex:1;min-width:220px" id="msg6"></p></div></div>
+    <div class="side">
+      <div class="rng"><label for="mark">상인 한 사람이 붙이는 이윤 <b id="markV">30%</b></label><input type="range" id="mark" min="10" max="100" step="10" value="30"></div>
+      <div class="rng"><label for="tax">나라마다 걷는 통행세 <b id="taxV">10%</b></label><input type="range" id="tax" min="0" max="30" step="5" value="10"></div>
+      <div class="sw"><label><input type="checkbox" id="sea"><div><b>바닷길로 가기</b><span>거치는 상인은 적지만 배가 가라앉을 위험이 있다</span></div></label></div>
+      <p class="note">실제 값은 남은 기록이 적어 알기 어렵습니다. 여러 사람의 손을 거칠 때 값이 어떻게 불어나는지 보는 <b>모형</b>입니다.</p>
+    </div>
+  </div>
+</section>
+
+<p class="soon" id="soon" hidden>이 차시 시뮬레이션은 준비 중입니다.</p>
+
+<script src="../../assets/sim.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+function chart(cv,series,labels){const c=cv.getContext('2d'),W=cv.width,H=cv.height,p=46;c.clearRect(0,0,W,H);
+  c.strokeStyle='rgba(243,239,230,.15)';c.fillStyle='rgba(243,239,230,.6)';c.font='13px IBM Plex Sans KR,sans-serif';
+  for(let i=0;i<=4;i++){const y=p+(H-2*p)*i/4;c.beginPath();c.moveTo(p,y);c.lineTo(W-p,y);c.stroke();}
+  c.fillText(labels[0],p,H-p+20);c.fillText(labels[1],W-p-40,H-p+20);
+  series.forEach((s,k)=>{const mx=s.max;c.strokeStyle=s.color;c.lineWidth=2.5;c.beginPath();
+    s.data.forEach((v,i)=>{const x=p+(W-2*p)*i/(s.data.length-1),y=H-p-(H-2*p)*v/mx;i?c.lineTo(x,y):c.moveTo(x,y);});c.stroke();
+    c.fillStyle=s.color;c.fillText(s.name,p+8+k*190,p-14);});}
+
+/* 1 */
+(function(){
+  $('farm').oninput=()=>{$('farmV').textContent=$('farm').value+'%';};
+  $('bRun1').onclick=()=>{
+    const f=+$('farm').value/100,an=$('anim').checked;let pop=50,pops=[],work=[];
+    for(let y=0;y<=200;y++){
+      const cap=80+f*720;                       // 같은 땅이 먹여 살릴 수 있는 사람 수
+      const sick=(f*0.004+(an?0.003:0))*Math.min(1,pop/300);
+      pop+=pop*(0.03*(1-pop/cap)-sick);pops.push(pop);
+      work.push(5+f*4+(an?0.5:0));              // 하루 일하는 시간(어림)
+    }
+    chart($('cv1'),[{name:'마을 사람 수',data:pops,max:800,color:'#d9b25f'},{name:'하루 일하는 시간',data:work,max:12,color:'#c8432f'}],['0년','200년']);
+    const h=(165-f*7-(an?1:0)).toFixed(0),ill=['적음','조금','늘어남','많음'][Math.min(3,Math.round(f*2+(an?1:0)))];
+    $('tb1').innerHTML=`<tr><th>200년 뒤 사람 수</th><td class="n">${Math.round(pop)}명</td><th>하루 일하는 시간</th><td class="n">약 ${work[200].toFixed(1)}시간</td></tr>
+      <tr><th>어른 평균 키(어림)</th><td class="n">${h}cm</td><th>모여 살며 생기는 병</th><td class="n">${ill}</td></tr>
+      <tr><th>남는 곡식</th><td class="n">${f>=.5?'있음 → 누가 가질까?':'거의 없음'}</td><th>떠나서 살 수 있나</th><td class="n">${f>=.5?'어려움(밭과 창고)':'쉬움'}</td></tr>`;
+  };
+  $('bRun1').click();
+})();
+
+/* 2 */
+(function(){
+  let year,store,hunger,log;
+  function reset(){year=0;store=0;hunger=0;log=[];draw();}
+  function draw(){$('nileYear').textContent=(year||1)+'년';$('nileStore').textContent=Math.round(store);$('nileHunger').textContent=hunger;
+    $('nileLog').innerHTML=log.length?log.slice(-9).join('<br>'):'창고에 넣을 몫과 대비책을 정하고 [한 해 보내기]를 누르세요.';}
+  function step(){if(year>=20)return;year++;
+    const r=Math.random(),lvl=r<.25?'low':r<.85?'ok':'high';
+    let crop={low:80,ok:140,high:100}[lvl];if($('canal').checked){crop-=8;if(lvl==='low')crop+=30;}
+    const k=+$('keep').value/100,put=crop*k;store=store*($('write2').checked?.97:.85)+put;
+    let eat=crop-put,msg='';
+    if(eat<100){const need=100-eat,take=Math.min(store,need);store-=take;eat+=take;}
+    if(eat<95){hunger++;msg=' — <b style="color:#e7836f">굶주림</b>';}
+    const name={low:'물이 적은 해',ok:'알맞은 해',high:'물이 넘친 해'}[lvl];
+    log.push(`${year}년: ${name}, ${Math.round(crop)}가마 거둠 · 창고 ${Math.round(store)}가마${msg}`);
+    if(year===20)log.push(`<b>20년 끝 — 굶주린 해 ${hunger}번.</b> 창고를 관리하는 사람, 물길을 파게 하는 사람, 장부를 쓰는 사람은 누구였을까?`);
+    draw();}
+  $('keep').oninput=()=>{$('keepV').textContent=$('keep').value+'%';};
+  $('bYear').onclick=step;$('bAll').onclick=()=>{while(year<20)step();};$('bReset2').onclick=reset;reset();
+})();
+
+/* 3 */
+(function(){
+  const G=[['성인 남성 시민',40,'#d9b25f',true],['시민의 아내와 딸',60,'#c8432f',false],['시민의 아들(어린이)',60,'#a5381f',false],['외국인(메토이코이)',30,'#6fae7b',false],['노예',80,'#7a7a8c',false]];
+  function draw(){const tot=G.reduce((a,g)=>a+g[1],0),v=G.filter(g=>g[3]).reduce((a,g)=>a+g[1],0);
+    $('pop3').innerHTML=G.map(g=>`<i style="width:${g[1]/tot*100}%;background:${g[2]};opacity:${g[3]?1:.35}"></i>`).join('');
+    $('leg3').innerHTML=G.map(g=>`<span><b style="background:${g[2]}"></b>${g[0]} 약 ${g[1]}천</span>`).join('');
+    $('who3').innerHTML=G.map((g,i)=>`<button class="pick" type="button" data-i="${i}" aria-pressed="${g[3]}">${g[0]}<small>${g[3]?'투표할 수 있음':'투표할 수 없음'}</small></button>`).join('');
+    $('share3').textContent=Math.round(v/tot*100)+'%';}
+  $('who3').onclick=e=>{const b=e.target.closest('.pick');if(!b)return;const g=G[+b.dataset.i];g[3]=!g[3];draw();};draw();
+})();
+
+/* 4 */
+(function(){
+  const cv=$('cv4'),c=cv.getContext('2d');
+  const N=[['로마',380,250],['브리타니아',150,40],['갈리아',230,120],['히스파니아',90,230],['게르마니아 경계',420,90],['다키아',560,140],['그리스',520,300],['이집트',600,450],['아프리카',300,420]];
+  let roads=[],pick=null,budget=100;
+  const dist=(a,b)=>Math.hypot(N[a][1]-N[b][1],N[a][2]-N[b][2]);
+  function days(){ // 로마에서 각 도시까지 가장 빠른 날 수 (다익스트라)
+    const d=N.map(()=>1e9);d[0]=0;const done=new Set();
+    while(done.size<N.length){let u=-1;d.forEach((v,i)=>{if(!done.has(i)&&(u<0||v<d[u]))u=i;});done.add(u);
+      N.forEach((_,v)=>{if(v===u)return;const road=roads.some(r=>(r[0]===u&&r[1]===v)||(r[0]===v&&r[1]===u));
+        const t=dist(u,v)/(road?30:10);if(d[u]+t<d[v])d[v]=d[u]+t;});}
+    return d;}
+  function draw(){c.clearRect(0,0,cv.width,cv.height);
+    roads.forEach(([a,b])=>{c.strokeStyle='#d9b25f';c.lineWidth=4;c.beginPath();c.moveTo(N[a][1],N[a][2]);c.lineTo(N[b][1],N[b][2]);c.stroke();});
+    const d=days();
+    N.forEach((n,i)=>{c.beginPath();c.arc(n[1],n[2],i?13:18,0,7);c.fillStyle=i===0?'#c8432f':d[i]>10?'#7a3a2e':'#3d5c43';c.fill();
+      if(pick===i){c.strokeStyle='#f3efe6';c.lineWidth=3;c.stroke();}
+      c.fillStyle='#f3efe6';c.font='14px IBM Plex Sans KR,sans-serif';c.fillText(n[0],n[1]+18,n[2]+5);});
+    $('bud4').innerHTML=`예산 ${Math.round(budget)}<small>도시 두 곳을 차례로 누르면 길을 놓습니다(길이만큼 듭니다)</small>`;
+    $('tb4').innerHTML=N.slice(1).map((n,i)=>`<tr><th>${n[0]}</th><td class="n" style="color:${d[i+1]>10?'#e7836f':'inherit'}">${d[i+1].toFixed(1)}일</td></tr>`).join('');}
+  cv.onclick=e=>{const r=cv.getBoundingClientRect(),x=(e.clientX-r.left)*cv.width/r.width,y=(e.clientY-r.top)*cv.height/r.height;
+    const i=N.findIndex(n=>Math.hypot(n[1]-x,n[2]-y)<24);if(i<0)return;
+    if(pick===null||pick===i){pick=pick===i?null:i;}else{const cost=dist(pick,i)/6;
+      if(!roads.some(r=>(r[0]===pick&&r[1]===i)||(r[0]===i&&r[1]===pick))&&cost<=budget){roads.push([pick,i]);budget-=cost;}pick=null;}draw();};
+  $('bReset4').onclick=()=>{roads=[];budget=100;pick=null;draw();};draw();
+})();
+
+/* 5 */
+(function(){
+  const P=['도둑이 늘어난 마을','이웃 나라와 전쟁이 끊이지 않는다','관리들이 뇌물을 받는다','백성이 세금이 무겁다고 원망한다'];
+  const S={유가:['어진 마음과 예','지도자가 먼저 바르게 살면 백성이 본받는다. 가르치고 예절을 세운다.','시간이 오래 걸리지만 사람의 마음이 바뀐다. 지도자가 모범이 되지 못하면 힘이 없다.'],
+           법가:['엄한 법과 상벌','법을 분명히 쓰고, 지키면 상을, 어기면 엄한 벌을 준다. 누구에게나 똑같이.','빠르게 질서가 잡힌다. 진은 이 길로 통일했지만, 너무 엄한 법에 대한 원망 속에 15년 만에 무너졌다.'],
+           도가:['억지로 하지 않음','다스리려 애쓸수록 어지러워진다. 욕심을 부추기는 것을 줄이고 자연스럽게 둔다.','다툼이 줄 수 있지만, 큰 나라에서 어떻게 할지는 막연하다는 비판을 받았다.'],
+           묵가:['차별 없는 사랑','내 가족과 남의 가족을 똑같이 사랑하고, 남을 해치는 전쟁에 반대한다. 아껴 쓴다.','평등한 생각이었지만, 가족을 앞세우는 유가에게서 비판받았고 뒤에는 크게 이어지지 못했다.']};
+  let p=null,s=null;
+  $('prob5').innerHTML=P.map((t,i)=>`<button class="pick" type="button" data-p="${i}">${t}</button>`).join('');
+  $('school5').innerHTML=Object.entries(S).map(([k,v])=>`<button class="pick" type="button" data-s="${k}">${k}<small>${v[0]}</small></button>`).join('');
+  function show(){document.querySelectorAll('[data-p]').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.p===p));
+    document.querySelectorAll('[data-s]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.s===s));
+    if(p===null||!s)return;const v=S[s];$('rep5').hidden=false;
+    $('rep5').innerHTML=`<h3>${s}의 처방 · “${P[p]}”</h3><p><b>처방</b>: ${v[1]}</p><p><b>생각해 볼 점</b>: ${v[2]}</p><p class="miss-list">다른 사상가에게도 물어보고, 두 처방을 견주어 보세요. 고민을 바꾸면 어느 처방이 더 맞을까요?</p>`;}
+  $('prob5').onclick=e=>{const b=e.target.closest('.pick');if(b){p=+b.dataset.p;show();}};
+  $('school5').onclick=e=>{const b=e.target.closest('.pick');if(b){s=b.dataset.s;show();}};
+})();
+
+/* 6 */
+(function(){
+  const LAND=['장안','둔황','카슈가르','사마르칸트','메르브','크테시폰','안티오키아','로마'];
+  const SEA=['장안','광저우','인도 남부 항구','홍해 항구','알렉산드리아','로마'];
+  function run(){$('markV').textContent=$('mark').value+'%';$('taxV').textContent=$('tax').value+'%';
+    const m=+$('mark').value/100,t=+$('tax').value/100,sea=$('sea').checked,R=sea?SEA:LAND;let price=1,rows=[];
+    R.forEach((c,i)=>{if(i){price*=1+m;price*=1+t;}rows.push(`${c} <b style="color:var(--gold)">${price.toFixed(1)}배</b>`);});
+    if(sea)price*=1.15; // 배를 잃을 위험
+    $('route6').innerHTML=rows.join(' → ');$('mult6').textContent=price.toFixed(1)+'배';
+    $('msg6').textContent=price>20?'로마의 귀족만 살 수 있는 값입니다. 로마의 원로원과 학자들이 비단 사치를 비판한 까닭을 짐작해 보세요.':price>8?'꽤 비싼 사치품입니다. 누가 가장 많이 벌었을까요?':'생각보다 값이 덜 올랐습니다. 이윤이나 세금을 바꿔 보세요.';}
+  ['mark','tax','sea'].forEach(id=>$(id).oninput=run);$('sea').onchange=run;run();
+})();
+</script>
+</body>
+</html>

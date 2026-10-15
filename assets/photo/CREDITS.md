@@ -25,6 +25,34 @@
 
 | 파일 | 이용 조건 | 출처 표기 | 원본 페이지 |
 |---|---|---|---|
+| m1/ancient/ashoka-lion.jpg | CC BY 2.0 | 아소카 사자 기둥머리 · 사르나트 박물관 · 사진 lisa bat | [Lion_capital_of_Ashoka,_Sarnath.jpg](https://commons.wikimedia.org/wiki/File%3ALion_capital_of_Ashoka%2C_Sarnath.jpg) |
+| m1/ancient/catacomb.jpg | CC BY-SA 3.0, GFDL | 로마의 카타콤 · 사진 GerardM | [Catacombe.jpg](https://commons.wikimedia.org/wiki/File%3ACatacombe.jpg) |
+| m1/ancient/catalhoyuk.jpg | CC BY-SA 3.0 | 차탈회위크 발굴 현장 · 사진 Omar hoftun | [Çatalhöyük_after_the_first_excavations_by_James_Mellaar](https://commons.wikimedia.org/wiki/File%3A%C3%87atalh%C3%B6y%C3%BCk_after_the_first_excavations_by_James_Mellaart_and_his_team..jpg) |
+| m1/ancient/colosseum.jpg | CC BY-SA 2.5 | 콜로세움 · 사진 Diliff | [Colosseum_in_Rome,_Italy_-_April_2007.jpg](https://commons.wikimedia.org/wiki/File%3AColosseum_in_Rome%2C_Italy_-_April_2007.jpg) |
+| m1/ancient/comb-pottery.jpg | CC BY-SA 2.5, CC BY-SA 3.0, GFDL | 빗살무늬 토기(서울 암사동 출토) · Wikimedia Commons | [KoreanEarthenwareJar4000BCEAmsa-DongNearSeoul.jpg](https://commons.wikimedia.org/wiki/File%3AKoreanEarthenwareJar4000BCEAmsa-DongNearSeoul.jpg) |
+| m1/ancient/confucius.jpg | PDM, Public domain | 공자상(전 오도자 그림의 탁본) | [Confucius_Tang_Dynasty.jpg](https://commons.wikimedia.org/wiki/File%3AConfucius_Tang_Dynasty.jpg) |
+| m1/ancient/constantine.jpg | Public domain | 콘스탄티누스 대제의 거대 두상 · 카피톨리니 박물관 | [Head_Constantine_Musei_Capitolini_MC1072.jpg](https://commons.wikimedia.org/wiki/File%3AHead_Constantine_Musei_Capitolini_MC1072.jpg) |
+| m1/ancient/cyrus-cylinder.jpg | CC BY-SA 3.0, GFDL | 키루스 원통 · 영국 박물관 · 사진 Prioryman | [Cyrus_Cylinder_front.jpg](https://commons.wikimedia.org/wiki/File%3ACyrus_Cylinder_front.jpg) |
+| m1/ancient/gandhara-buddha.jpg | PD-1923, Public domain | 간다라 불상 · 도쿄국립박물관 | [Gandhara_Buddha_(tnm).jpeg](https://commons.wikimedia.org/wiki/File%3AGandhara_Buddha_%28tnm%29.jpeg) |
+| m1/ancient/gobekli.jpg | CC0 | 괴베클리 테페 C구역 27번 기둥 · 사진 Kerimove | [Göbekli_Tepe_Enclosure_C_Pillar_27_relief.jpg](https://commons.wikimedia.org/wiki/File%3AG%C3%B6bekli_Tepe_Enclosure_C_Pillar_27_relief.jpg) |
+| m1/ancient/gochang-dolmen.jpg | CC BY-SA 2.1 jp | 고창 고인돌 유적 · 사진 Kussy | [Gochang_Dolmen_Sites_-_1.JPG](https://commons.wikimedia.org/wiki/File%3AGochang_Dolmen_Sites_-_1.JPG) |
+| m1/ancient/greatwall-1907.jpg | CC BY 2.0 | 허버트 폰팅, 만리장성(1907) · 복원 ralph repo | [Greatwall_China_(1907)_Herbert_G._Ponting_(RESTORED)_(4](https://commons.wikimedia.org/wiki/File%3AGreatwall_China_%281907%29_Herbert_G._Ponting_%28RESTORED%29_%284071712625%29.jpg) |
+| m1/ancient/hammurabi.jpg | CC BY 3.0, CC0 | 함무라비 법전 비석 · 루브르 박물관 · 사진 Mbzt | [P1050763_Louvre_code_Hammurabi_face_rwk.JPG](https://commons.wikimedia.org/wiki/File%3AP1050763_Louvre_code_Hammurabi_face_rwk.JPG) |
+| m1/ancient/han-silk.jpg | PDM, Public domain | 서한 시대의 비단 | [Woven_silk,_Western_Han_Dynasty.jpg](https://commons.wikimedia.org/wiki/File%3AWoven_silk%2C_Western_Han_Dynasty.jpg) |
+| m1/ancient/kanishka-coin.jpg | CC BY-SA 2.5, GFDL | 카니슈카 1세의 금화(쿠샨 왕조) | [Gold_coin_of_Kanishka_I.jpg](https://commons.wikimedia.org/wiki/File%3AGold_coin_of_Kanishka_I.jpg) |
+| m1/ancient/lascaux.jpg | CC BY-SA 3.0, GFDL, PDM, Public domain | 라스코 동굴 벽화 · Wikimedia Commons | [Lascaux_painting.jpg](https://commons.wikimedia.org/wiki/File%3ALascaux_painting.jpg) |
+| m1/ancient/mohenjodaro.jpg | CC BY-SA 3.0 | 모헨조다로 대욕장 · 사진 Saqib Qayyum | [Great_bath_view_Mohenjodaro.JPG](https://commons.wikimedia.org/wiki/File%3AGreat_bath_view_Mohenjodaro.JPG) |
+| m1/ancient/oracle-bone.jpg | CC0 | 상(은)의 갑골 · 사진 Gary Lee Todd | [Shang_Ox_Bone_Oracle_Bone_02.jpg](https://commons.wikimedia.org/wiki/File%3AShang_Ox_Bone_Oracle_Bone_02.jpg) |
+| m1/ancient/ostracon.jpg | CC BY 4.0 | 테미스토클레스의 이름이 적힌 도편 · 아테네 고대 아고라 박물관 · 사진 Marsyas | [Ostracon_with_the_name_of_Themistocles.jpg](https://commons.wikimedia.org/wiki/File%3AOstracon_with_the_name_of_Themistocles.jpg) |
+| m1/ancient/parthenon.jpg | CC BY-SA 2.5 | 파르테논 신전 · 사진 Thermos | [Parthenon_from_south.jpg](https://commons.wikimedia.org/wiki/File%3AParthenon_from_south.jpg) |
+| m1/ancient/persepolis-apadana.jpg | CC BY-SA 3.0, GFDL | 페르세폴리스 아파다나 계단 부조 · 사진 Phillip Maiwald | [Persepolis_stairs_of_the_Apadana_relief.jpg](https://commons.wikimedia.org/wiki/File%3APersepolis_stairs_of_the_Apadana_relief.jpg) |
+| m1/ancient/pont-du-gard.jpg | CC BY-SA 3.0 | 퐁 뒤 가르 수도교 · 사진 Benh LIEU SONG | [Pont_du_Gard_BLS.jpg](https://commons.wikimedia.org/wiki/File%3APont_du_Gard_BLS.jpg) |
+| m1/ancient/pyramids-frith.jpg | PDM, Public domain | 프랜시스 프리스, 기자의 피라미드(1857년 무렵) | [Francis_Frith_-_Pyramids_Of_El-Geezeh_(From_The_Southwe](https://commons.wikimedia.org/wiki/File%3AFrancis_Frith_-_Pyramids_Of_El-Geezeh_%28From_The_Southwest%29_-_Google_Art_Project.jpg) |
+| m1/ancient/qin-slips.jpg | CC0 | 진의 법률을 적은 죽간(수호지 진간) · 사진 Gary Todd | [Eighteen_Laws_of_Qin_on_Qin_Bamboo_Slips_(10160622885).](https://commons.wikimedia.org/wiki/File%3AEighteen_Laws_of_Qin_on_Qin_Bamboo_Slips_%2810160622885%29.jpg) |
+| m1/ancient/sanchi.jpg | CC BY-SA 3.0, GFDL | 산치 대탑 · 사진 Bernard Gagnon | [Stupa_1,_Sanchi_02.jpg](https://commons.wikimedia.org/wiki/File%3AStupa_1%2C_Sanchi_02.jpg) |
+| m1/ancient/terracotta.jpg | CC0 | 진 시황릉 병마용 1호 갱 · 사진 Gary Lee Todd | [Qin_Terracotta_Army,_Pit_1_03.jpg](https://commons.wikimedia.org/wiki/File%3AQin_Terracotta_Army%2C_Pit_1_03.jpg) |
+| m1/ancient/via-appia.jpg | CC BY-SA 4.0 | 아피아 가도 · 사진 Livioandronico2013 | [Appian_Way.jpg](https://commons.wikimedia.org/wiki/File%3AAppian_Way.jpg) |
+| m1/ancient/ziggurat-ur.jpg | CC BY 3.0, CC0 | 우르의 지구라트 · 미 공군 기지 내 사진(Hardnfast) | [Ancient_ziggurat_at_Ali_Air_Base_Iraq_2005.jpg](https://commons.wikimedia.org/wiki/File%3AAncient_ziggurat_at_Ali_Air_Base_Iraq_2005.jpg) |
 | m1/basics/berlin-memorial.jpg | CC BY-SA 3.0 | 학살된 유럽 유대인을 위한 기념비(베를린) · 사진 Slaunger | [Memorial_to_the_Murdered_Jews_of_Europe_Berlin_2014-07-](https://commons.wikimedia.org/wiki/File%3AMemorial_to_the_Murdered_Jews_of_Europe_Berlin_2014-07-13.jpg) |
 | m1/basics/boston-revere.jpg | CC0 | 폴 리비어(헨리 펠럼 원화), 「보스턴 학살」(1770) · 미국 국립미술관 | [Paul_Revere,_after_Henry_Pelham,_The_Boston_Massacre,_1](https://commons.wikimedia.org/wiki/File%3APaul_Revere%2C_after_Henry_Pelham%2C_The_Boston_Massacre%2C_1770%2C_NGA_11550.jpg) |
 | m1/basics/columbus-vanderlyn.jpg | CC0, Public domain | 존 밴더린, 「콜럼버스의 상륙」(1837~1847) · 미국 의회 의사당 | [John_Vanderlyn_-_Columbus_Landing_at_Guanahani,_1492_-_](https://commons.wikimedia.org/wiki/File%3AJohn_Vanderlyn_-_Columbus_Landing_at_Guanahani%2C_1492_-_WGA24269.jpg) |
