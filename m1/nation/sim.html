@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>시뮬레이션 · 역사① 5단원 제국주의와 국민 국가 건설 운동</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700;900&family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="../../assets/sim.css">
+<style>
+table.t{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums}
+table.t th,table.t td{border-bottom:1px solid var(--faint);padding:6px 8px;text-align:left;vertical-align:top}
+.meter{margin:6px 0}
+.meter span{display:flex;justify-content:space-between;font-size:13px;color:var(--dim)}
+.meter i{display:block;height:10px;border-radius:5px;background:var(--faint);overflow:hidden}
+.meter i b{display:block;height:100%;background:var(--gold);transition:width .3s}
+.day24{display:flex;height:34px;border-radius:8px;overflow:hidden;margin:10px 0 4px}
+.day24 i{display:block;height:100%}
+.leg{display:flex;gap:12px;flex-wrap:wrap;font-size:12.5px;color:var(--dim)}
+.leg span::before{content:'';display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;background:var(--c);vertical-align:-1px}
+.order{display:flex;flex-direction:column;gap:6px}
+.order button{text-align:left;font:500 14px var(--sans);background:var(--panel);color:var(--ink);border:1px solid var(--faint);border-radius:10px;padding:8px 12px;cursor:pointer}
+.order button[disabled]{opacity:.45;cursor:default}
+.seq{list-style:none;padding:0;margin:0;counter-reset:n}
+.seq li{counter-increment:n;padding:6px 10px;border-left:3px solid var(--gold);margin:4px 0;background:var(--panel);border-radius:0 8px 8px 0;font-size:14px}
+.seq li::before{content:counter(n)'. ';color:var(--gold);font-weight:700}
+.seq li.no{border-color:var(--red)}
+</style>
+</head>
+<body>
+<div class="top"><a href="../index.html#u5">← 역사① 목록</a><nav id="nav"></nav></div>
+
+<!-- 1 -->
+<section class="panel" data-lesson="1">
+  <h1>보스턴 상인의 10년</h1>
+  <p class="q">영국 의회가 새 세금을 매겼다. 나는 어떻게 맞설까?</p>
+  <div class="stage">
+    <div class="card"><div class="day" id="yr1">1765<small id="law1"></small></div><p id="ask1" style="margin:12px 0"></p><div class="grid2" id="opt1"></div><div class="fb" id="fb1" style="margin-top:12px" hidden></div>
+      <div class="btns" style="margin-top:12px"><button id="bNext1" type="button" hidden>다음 해로</button></div></div>
+    <div class="side"><div class="card"><div id="met1"></div></div>
+      <p class="note">해마다 실제로 일어난 일을 함께 보여 줍니다. 긴장 게이지는 이해를 돕는 <b>모형</b>입니다.</p></div>
+  </div>
+</section>
+
+<!-- 2 -->
+<section class="panel" data-lesson="2">
+  <h1>삼부회의 표결</h1>
+  <p class="q">“모든 신분이 세금을 내자.” 이 안건은 통과될까?</p>
+  <div class="stage">
+    <div><canvas id="cv2" width="760" height="300" aria-label="신분별 대표 수와 찬반"></canvas>
+      <div class="grid2" style="margin-top:12px"><div class="card"><b>신분별 표결</b><div class="big" id="r2a" style="font-size:30px;margin-top:6px"></div><small id="r2as" style="color:var(--dim)"></small></div>
+        <div class="card"><b>머릿수 표결</b><div class="big" id="r2b" style="font-size:30px;margin-top:6px"></div><small id="r2bs" style="color:var(--dim)"></small></div></div></div>
+    <div class="side">
+      <div class="rng"><label for="cl2">제3신분 편에 선 성직자 <b id="cl2V">0명</b></label><input type="range" id="cl2" min="0" max="300" step="10" value="0"></div>
+      <div class="rng"><label for="no2">제3신분 편에 선 귀족 <b id="no2V">0명</b></label><input type="range" id="no2" min="0" max="270" step="10" value="0"></div>
+      <div class="fb" style="font-size:13px">실제로 1789년 6월 성직자 대표 약 150명이 제3신분 편에 섰고, 귀족 대표 47명이 국민 의회에 합류했다.</div>
+      <p class="note">대표 수는 대략값(제1신분 약 300, 제2신분 약 270, 제3신분 약 580)이며, 나머지는 반대한다고 가정한 <b>모형</b>입니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3 -->
+<section class="panel" data-lesson="3">
+  <h1>방적 공장의 하루</h1>
+  <p class="q">1833년 공장법은 누구의 하루를 바꾸었을까?</p>
+  <h2 class="sub">나이</h2><div class="grid2" id="age3"></div>
+  <div class="btns" style="margin:14px 0"><span style="color:var(--dim);font-size:14px">때:</span><select id="law3"><option value="0">1833년 공장법 이전</option><option value="1">1833년 공장법 이후</option></select></div>
+  <div class="card"><div class="day24" id="bar3"></div><div class="leg" id="leg3"></div><p id="txt3" style="margin:10px 0 0"></p></div>
+  <p class="note" style="margin-top:12px">1833년 공장법의 내용(9세 미만 고용 금지, 9~13세 하루 9시간·주 48시간과 학교 2시간, 13~18세 하루 12시간)은 법 조문을 따랐습니다. 법 이전의 하루는 여러 증언을 바탕으로 만든 <b>모형</b>이며, 공장마다 달랐습니다. 법이 늘 지켜진 것도 아닙니다.</p>
+</section>
+
+<!-- 4 -->
+<section class="panel" data-lesson="4">
+  <h1>대평원의 들소</h1>
+  <p class="q">무엇이 들소를 사라지게 했을까?</p>
+  <div class="stage">
+    <div><canvas id="cv4" width="760" height="380" aria-label="1800년부터 1900년까지 들소 수 그래프"></canvas><div class="log" id="log4"></div></div>
+    <div class="side">
+      <div class="sw"><label><input type="checkbox" id="rail4" checked><div><b>대륙 횡단 철도 (1869)</b><span>사냥꾼과 가죽을 실어 나른다</span></div></label>
+        <label><input type="checkbox" id="hide4" checked><div><b>공장의 가죽 수요 (1870년대)</b><span>들소 가죽으로 기계 벨트를 만든다</span></div></label>
+        <label><input type="checkbox" id="army4" checked><div><b>사냥을 내버려 두는 정부</b><span>원주민의 먹을거리를 없애려 했다는 해석</span></div></label>
+        <label><input type="checkbox" id="law4"><div><b>1870년대에 사냥 규제법</b><span>실제로는 늦게(1890년대) 일부만</span></div></label></div>
+      <div class="btns"><button class="go" id="bRun4" type="button">100년 돌리기</button></div>
+      <p class="note">1800년 약 3천만 마리(추정치는 연구마다 크게 다름)에서 1889년 무렵 수백 마리로 줄었다는 추정을 기준으로 만든 <b>모형</b>입니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 5 -->
+<section class="panel" data-lesson="5">
+  <h1>근대화 개혁 회의</h1>
+  <p class="q">개혁 예산은 넷. 무엇부터 할까?</p>
+  <div class="grid2" id="ref5"></div>
+  <div class="btns" style="margin-top:14px"><button class="go" id="bGo5" type="button" disabled>청 · 일본과 견주기</button><span id="cnt5" style="color:var(--dim);font-size:14px;align-self:center">0 / 4</span></div>
+  <div class="report" id="rep5" style="margin-top:14px" hidden></div>
+</section>
+
+<!-- 6 -->
+<section class="panel" data-lesson="6">
+  <h1>헌법의 운명</h1>
+  <p class="q">사건을 일어난 차례대로 눌러 보자.</p>
+  <div class="btns" style="margin:12px 0"><span style="color:var(--dim);font-size:14px">나라:</span><select id="land6"><option value="ot">오스만 제국</option><option value="ir">이란</option><option value="in">인도</option></select><button id="bRe6" type="button">다시</button></div>
+  <div class="stage"><div class="order" id="pool6"></div><div class="side"><ol class="seq" id="seq6"></ol><div class="fb" id="fb6" hidden></div></div></div>
+</section>
+
+<p class="soon" id="soon" hidden>이 차시 시뮬레이션은 준비 중입니다.</p>
+<script src="../../assets/sim.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+function picks(el,items,onchange){el.innerHTML=items.map((t,i)=>`<button class="pick" type="button" data-i="${i}" aria-pressed="false">${t[0]}<small>${t[1]}</small></button>`).join('');
+  el.onclick=e=>{const b=e.target.closest('.pick');if(!b)return;[...el.children].forEach(c=>c.setAttribute('aria-pressed',c===b));onchange(+b.dataset.i);};}
+const meter=(n,v,col)=>`<div class="meter"><span>${n}<b>${Math.round(Math.max(0,Math.min(10,v)))}/10</b></span><i><b style="width:${Math.max(0,Math.min(10,v))*10}%${col?';background:'+col:''}"></b></i></div>`;
+
+/* 1 */
+(function(){
+  const Y=[['1765','인지세법 — 신문·증서에 인지를 붙여라','모든 문서와 신문에 세금이 붙는다.','식민지 대표들이 인지세법 회의를 열고 영국 상품을 사지 않았다. 1766년 영국은 인지세법을 거두었다. 그러나 ‘의회는 식민지에 법을 만들 권리가 있다’는 선언법을 함께 냈다.'],
+    ['1767','타운센드법 — 유리·종이·차에 관세','수입품에 세금이 붙는다.','다시 불매 운동이 퍼졌다. 1770년 영국은 차에 붙은 세금만 남기고 거두었다. 같은 해 보스턴에서 영국군의 발포로 시민이 죽었다(보스턴 학살).'],
+    ['1773','차법 — 동인도 회사에 차 독점 판매권','값싼 차가 들어오지만, 식민지 상인은 장사를 잃는다.','12월 보스턴 사람들이 원주민 모습으로 꾸미고 배에 올라 차 상자를 바다에 던졌다(보스턴 차 사건).'],
+    ['1774','강압법 — 보스턴 항구를 닫아라','차값을 물어낼 때까지 항구가 닫힌다.','식민지 대표들이 제1차 대륙 회의를 열었다. 1775년 렉싱턴에서 전투가 시작되었고, 1776년 독립을 선언했다.']];
+  const O=[['청원서를 보낸다','왕과 의회에 법을 거두어 달라',1],['영국 상품을 사지 않는다','불매 운동',2],['세금 관리를 쫓아낸다','거리 시위',3],['그냥 낸다','장사가 먼저다',0]];
+  let k=0,ten=2,unity=2;
+  function show(){if(k>=Y.length){$('yr1').innerHTML='1776<small>독립 선언</small>';$('ask1').textContent='10년의 선택이 끝났다. 처음에 식민지 사람들은 독립을 바랐을까, 영국인으로서의 권리를 바랐을까?';$('opt1').innerHTML='';$('bNext1').hidden=false;$('bNext1').textContent='처음부터';return;}
+    const y=Y[k];$('yr1').innerHTML=`${y[0]}<small>${y[1]}</small>`;$('ask1').textContent=y[2];$('fb1').hidden=true;$('bNext1').hidden=true;
+    $('opt1').innerHTML=O.map((o,i)=>`<button class="pick" type="button" data-i="${i}" aria-pressed="false">${o[0]}<small>${o[1]}</small></button>`).join('');draw();}
+  function draw(){$('met1').innerHTML=meter('영국과의 긴장',ten,'#c8432f')+meter('식민지의 단결',unity);}
+  $('opt1').onclick=e=>{const b=e.target.closest('.pick');if(!b||!$('fb1').hidden)return;const o=O[+b.dataset.i];b.setAttribute('aria-pressed','true');
+    ten+=o[2]*.8+.6;unity+=o[2]?1.2:-.5;draw();$('fb1').hidden=false;$('fb1').innerHTML=`<b>실제로는</b> — ${Y[k][3]}`;$('bNext1').hidden=false;$('bNext1').textContent=k<Y.length-1?'다음 해로':'1776년으로';};
+  $('bNext1').onclick=()=>{if(k>=Y.length){k=0;ten=2;unity=2;}else k++;show();};
+  show();
+})();
+
+/* 2 */
+(function(){
+  const N=[300,270,580];
+  function run(){const cl=+$('cl2').value,no=+$('no2').value;$('cl2V').textContent=cl+'명';$('no2V').textContent=no+'명';
+    const yes=[cl,no,N[2]],nay=[N[0]-cl,N[1]-no,0];
+    const orders=yes.map((y,i)=>y>nay[i]);const oy=orders.filter(Boolean).length;
+    const ty=yes.reduce((a,b)=>a+b),tn=nay.reduce((a,b)=>a+b);
+    $('r2a').textContent=oy>=2?'통과':'부결';$('r2as').textContent=`찬성한 신분 ${oy} : 반대한 신분 ${3-oy}`;
+    $('r2b').textContent=ty>tn?'통과':'부결';$('r2bs').textContent=`찬성 ${ty}명 : 반대 ${tn}명`;
+    const cv=$('cv2'),c=cv.getContext('2d'),W=cv.width,H=cv.height;c.clearRect(0,0,W,H);const L=['제1신분 성직자','제2신분 귀족','제3신분'],bw=180,gap=(W-3*bw)/4,mx=600;
+    c.font='13px IBM Plex Sans KR,sans-serif';
+    N.forEach((n,i)=>{const x=gap+i*(bw+gap),h1=(H-60)*yes[i]/mx,h2=(H-60)*nay[i]/mx;
+      c.fillStyle='#d9b25f';c.fillRect(x,H-30-h1,bw,h1);c.fillStyle='#c8432f';c.fillRect(x,H-30-h1-h2,bw,h2);
+      c.fillStyle='rgba(243,239,230,.75)';c.fillText(L[i],x,H-10);c.fillText(`찬 ${yes[i]} · 반 ${nay[i]}`,x,H-36-h1-h2);});
+    c.fillStyle='rgba(243,239,230,.55)';c.fillText('노랑: 찬성  빨강: 반대',W-150,18);}
+  ['cl2','no2'].forEach(id=>$(id).oninput=run);run();
+})();
+
+/* 3 */
+(function(){
+  const A=[['8살','가장 어린 일꾼'],['11살','실 잇는 아이'],['15살','기계 옆 소녀'],['어른','방적공']];
+  const C={work:'#c8432f',meal:'#d9b25f',school:'#6fae7b',road:'#7a7a8c',home:'#2c2a27'};
+  let a=-1;picks($('age3'),A,i=>{a=i;draw();});$('law3').onchange=()=>draw();
+  function draw(){if(a<0){$('txt3').textContent='나이를 고르세요.';return;}const law=+$('law3').value;let seg,txt;
+    const pre=[['road',1],['work',6.5],['meal',.5],['work',6.5],['road',1],['home',8.5]];
+    if(!law){seg=pre;txt=a===0?'법 이전: 여덟 살도 어른과 같은 시간을 일하는 공장이 있었다. 졸면 감독에게 맞았다는 증언이 남아 있다.':'법 이전: 하루 12~13시간 넘게 일하는 일이 흔했다.';}
+    else if(a===0){seg=[['home',24]];txt='법 이후: 9세 미만은 섬유 공장에서 일할 수 없다. 그러나 다른 일터(탄광, 집안 공장)는 이 법에 들지 않았다.';}
+    else if(a===1){seg=[['road',1],['work',4.5],['meal',.5],['work',4.5],['school',2],['road',1],['home',10.5]];txt='법 이후: 9~13세는 하루 9시간(주 48시간)까지만, 그리고 날마다 2시간 학교에 가야 한다. 감독관은 처음에 영국 전체에 네 명뿐이었다.';}
+    else if(a===2){seg=[['road',1],['work',6],['meal',.5],['work',6],['road',1],['home',9.5]];txt='법 이후: 13~18세는 하루 12시간까지. 밤일은 금지되었다.';}
+    else{seg=pre;txt='법 이후: 어른의 노동 시간은 이 법으로 제한되지 않았다. 1847년 법에서 여성과 청소년(13~18세)의 하루 10시간 제한이 생겼다.';}
+    $('bar3').innerHTML=seg.map(s=>`<i style="width:${s[1]/24*100}%;background:${C[s[0]]}" title="${s[1]}시간"></i>`).join('');
+    const sum=k=>seg.filter(s=>s[0]===k).reduce((x,s)=>x+s[1],0);
+    $('leg3').innerHTML=[['work','일'],['school','학교'],['meal','밥'],['road','오가는 길'],['home','집·잠']].map(([k,n])=>`<span style="--c:${C[k]}">${n} ${sum(k)}시간</span>`).join('');
+    $('txt3').textContent=txt;}
+  draw();
+})();
+
+/* 4 */
+(function(){
+  $('bRun4').onclick=()=>{const rail=$('rail4').checked,hide=$('hide4').checked,army=$('army4').checked,law=$('law4').checked;let n=30,data=[];
+    for(let y=1800;y<=1900;y++){let r=.004+(y>1830?.004:0);
+      if(rail&&y>=1869)r+=.08;if(hide&&y>=1871)r+=.30;if(army&&y>=1868)r+=.05;if(law&&y>=1875)r*=.25;
+      if(!rail&&!hide&&!army)r=Math.min(r,.012);
+      n=Math.max(.0003,n*(1-r)+(n<1&&law?n*.02:0));data.push(n);}
+    const cv=$('cv4'),c=cv.getContext('2d'),W=cv.width,H=cv.height,p=40;c.clearRect(0,0,W,H);c.strokeStyle='rgba(243,239,230,.15)';
+    for(let i=0;i<=3;i++){const y=p+(H-2*p)*i/3;c.beginPath();c.moveTo(p,y);c.lineTo(W-p,y);c.stroke();}
+    c.fillStyle='rgba(243,239,230,.6)';c.font='13px IBM Plex Sans KR,sans-serif';['3천만','30만','3천','30'].forEach((t,i)=>c.fillText(t,2,p+4+(H-2*p)*i/3));c.fillText('1800',p,H-p+20);c.fillText('1900',W-p-34,H-p+20);
+    const ly=v=>{const L=Math.log10(v*1e6),top=Math.log10(3e7),bot=Math.log10(30);return p+(H-2*p)*(top-Math.max(bot,L))/(top-bot);};
+    const x69=p+(W-2*p)*69/100;c.strokeStyle='rgba(200,67,47,.4)';c.setLineDash([4,4]);c.beginPath();c.moveTo(x69,p);c.lineTo(x69,H-p);c.stroke();c.setLineDash([]);c.fillText('1869 철도',x69+4,p+14);
+    c.strokeStyle='#d9b25f';c.lineWidth=2.5;c.beginPath();data.forEach((v,i)=>{const x=p+(W-2*p)*i/100;i?c.lineTo(x,ly(v)):c.moveTo(x,ly(v));});c.stroke();
+    const n89=data[89]*1e6,fmt=v=>v>=1e6?(v/1e6).toFixed(1)+'백만':v>=1e4?Math.round(v/1e4)+'만':Math.round(v).toLocaleString();
+    $('log4').insertAdjacentHTML('afterbegin',`<div>${[rail&&'철도',hide&&'가죽',army&&'방관',law&&'규제'].filter(Boolean).join(' · ')||'아무것도 없음'}<br>1889년 <b>${fmt(n89)}마리</b></div>`);};
+  $('bRun4').click();
+})();
+
+/* 5 */
+(function(){
+  const R=[['무기 공장 · 조선소','서양식 대포와 군함',1,1],['해외 유학생 보내기','서양 학문 배우기',1,1],['철도 · 전신','빠른 교통과 소식',.5,1],['헌법과 의회','국민이 정치에 참여',0,1],['신분제 고치기','무사·양반의 특권 없애기',0,1],['징병제','국민이 군대가 된다',0,1],['의무 교육','모든 아이를 학교로',0,1],['과거와 유교 관리 지키기','옛 제도는 그대로',1,0]];
+  let sel=[];$('ref5').innerHTML=R.map((r,i)=>`<button class="pick" type="button" data-i="${i}" aria-pressed="false">${r[0]}<small>${r[1]}</small></button>`).join('');
+  $('ref5').onclick=e=>{const b=e.target.closest('.pick');if(!b)return;const i=+b.dataset.i;sel=sel.includes(i)?sel.filter(x=>x!==i):sel.length<4?[...sel,i]:sel;
+    [...$('ref5').children].forEach((c,j)=>c.setAttribute('aria-pressed',sel.includes(j)));$('cnt5').textContent=sel.length+' / 4';$('bGo5').disabled=sel.length!==4;};
+  const T=v=>v===1?'했다':v===.5?'일부':'하지 않음';
+  $('bGo5').onclick=()=>{const rows=R.map((r,i)=>`<tr><td>${r[0]}</td><td>${sel.includes(i)?'●':''}</td><td>${T(r[2])}</td><td>${T(r[3])}</td></tr>`).join('');
+    $('rep5').hidden=false;$('rep5').innerHTML=`<h3>나의 개혁과 두 나라</h3><table class="t" style="color:#1d1b19"><tr><th>개혁</th><th>나</th><th>청 양무운동(1860~1890년대)</th><th>일본 메이지 유신</th></tr>${rows}</table>
+      <p>청은 기술 중심으로 고치고 정치 제도는 지켰다(과거제는 1905년에야 폐지, 헌법 준비는 1908년). 일본은 제도까지 바꾸었다. 그러나 일본의 헌법은 천황에게 주권을 두었고, 징병제로 키운 군대는 이웃 나라 침략에 쓰였다.</p>
+      <p class="miss-list">표는 큰 흐름을 단순하게 나타낸 것입니다. 청에서도 1872년 미국으로 아이 유학생을 보냈고, 철도는 반대가 많아 늦게 놓였습니다.</p>`;};
+})();
+
+/* 6 */
+(function(){
+  const E={ot:['탄지마트 개혁이 시작되다 (1839)','미드하트 헌법과 의회 (1876)','술탄이 의회를 닫고 헌법을 멈추다 (1878)','청년 튀르크 혁명으로 헌법이 되살아나다 (1908)'],
+    ir:['담배 이권을 영국 회사에 넘기다 (1890)','전국 담배 불매 운동으로 이권을 거두다 (1891~1892)','의회를 열고 헌법을 만들다 (1906)','영국과 러시아가 이란을 나누다 (1907)','러시아의 압력으로 의회가 해산되다 (1911)'],
+    in:['세포이들이 봉기하다 (1857)','영국 정부가 인도를 직접 다스리다 (1858)','인도 국민 회의가 만들어지다 (1885)','벵골 분할령 (1905)','콜카타 대회: 스와데시·스와라지 (1906)','벵골 분할령 철회 (1911)']};
+  let key='ot',got=[],pool=[];
+  const strip=s=>s.replace(/ \(.*\)$/,'');
+  function start(){key=$('land6').value;got=[];pool=E[key].map((t,i)=>i).sort(()=>Math.random()-.5);$('fb6').hidden=true;draw();}
+  function draw(){$('pool6').innerHTML=pool.map(i=>`<button type="button" data-i="${i}" ${got.some(g=>g[0]===i)?'disabled':''}>${strip(E[key][i])}</button>`).join('');
+    $('seq6').innerHTML=got.map(([i,ok])=>`<li class="${ok?'':'no'}">${E[key][i]}</li>`).join('');
+    if(got.length===E[key].length){const s=got.filter(g=>g[1]).length;$('fb6').hidden=false;$('fb6').innerHTML=`<b>${s} / ${got.length}</b> 제자리. ${key==='in'?'영국 안에서 권리를 찾던 요구가 자치(스와라지) 요구로 커졌다.':'헌법과 의회를 만들어도, 안의 권력과 밖의 열강이 그것을 멈추게 했다. 그래도 그 경험은 다음 세대로 이어졌다.'}`;}}
+  $('pool6').onclick=e=>{const b=e.target.closest('button');if(!b||b.disabled)return;const i=+b.dataset.i;got.push([i,i===got.length]);draw();};
+  $('land6').onchange=start;$('bRe6').onclick=start;start();
+})();
+</script>
+</body>
+</html>
